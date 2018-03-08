@@ -103,7 +103,7 @@ public class Player extends Entity {
 		super.setUp();
 	}
 	
-	// Keyboard input.
+	// Keyboard input. USE THE SPACE BUTTON.
 	// If Player has axe, dead trees in front
 	// of the Player will be chopped down.
 	public void setAction() {
