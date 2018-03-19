@@ -45,7 +45,7 @@ public class GameOverState extends GameState {
 		
 		g.setColor(color);
 		g.fillRect(0, 0, GamePanel.WIDTH, GamePanel.HEIGHT2);
-		
+		System.out.print("Yo we in the Game over State");
 		Content.drawString(g, "finish time", 20, 36);
 		System.out.print("GameOverState");
 		
