@@ -1,5 +1,5 @@
 // The main menu GameState.
-
+//David
 package com.neet.DiamondHunter.GameState;
 
 import java.awt.Graphics2D;
@@ -69,6 +69,7 @@ public class MenuState extends GameState {
 		}
 		if(currentOption == 1) {
 			System.exit(0);
+			System.out.println();
 		}
 	}
 	
