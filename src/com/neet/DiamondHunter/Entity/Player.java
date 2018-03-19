@@ -52,7 +52,7 @@ public class Player extends Entity {
 		cwidth = 12;
 		cheight = 12;
 		
-		moveSpeed = 2;
+		moveSpeed = 20;   //DEFAULT 2
 		
 		numDiamonds = 0;
 		
