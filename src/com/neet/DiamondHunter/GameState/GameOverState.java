@@ -47,6 +47,7 @@ public class GameOverState extends GameState {
 		g.fillRect(0, 0, GamePanel.WIDTH, GamePanel.HEIGHT2);
 		
 		Content.drawString(g, "finish time", 20, 36);
+		System.out.print("GameOverState");
 		
 		int minutes = (int) (ticks / 1800);
 		int seconds = (int) ((ticks / 30) % 60);
