@@ -39,7 +39,9 @@ public class GameOverState extends GameState {
 		else rank = 4;
 	}
 	
-	public void update() {}
+	public void update() {
+		handleInput();
+	}
 	
 	public void draw(Graphics2D g) {
 		
@@ -65,7 +67,7 @@ public class GameOverState extends GameState {
 		else if(rank == 3) Content.drawString(g, "beginner", 32, 78);
 		else if(rank == 4) Content.drawString(g, "bumbling idiot", 8, 78);
 		
-		Content.drawString(g, "press any key", 12, 110);
+		Content.drawString(g, "press enter", 12, 110);
 		
 	}
 	
