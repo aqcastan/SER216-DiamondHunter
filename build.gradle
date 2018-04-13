@@ -1,0 +1,61 @@
+plugins {
+  id 'com.github.spotbugs' version '1.6.1'
+  id 'eclipse'
+  id 'java'
+  id 'application'
+}
+
+apply plugin: 'java'
+apply plugin: 'application'
+
+
+sourceSets{
+    main{
+    	java{
+    	 	srcDir 'src/main'
+    	}
+    	resources{
+    	    srcDir 'Resources'
+    	}
+    }
+}
+
+dependencies {
+	//compile 'org.junit.platform:junit-platform-gradle-plugin:1.0.3'
+	compile fileTree(dir: 'Libs', include: '*.jar')
+	compileOnly 'com.github.spotbugs:spotbugs-annotations:3.1.1'
+    testCompile("org.junit.jupiter:junit-jupiter-api:5.0.3")
+    testRuntime("org.junit.jupiter:junit-jupiter-engine:5.0.3")
+
+}
+
+///////////////////////////////////////////////////////////////////////////
+// Definint Main class
+///////////////////////////////////////////////////////////////////////////
+mainClassName = 'main.com.neet.DiamondHunter.Main.Game'
+
+///////////////////////////////////////////////////////////////////////////
+// Repositories and dependencies for code go here
+///////////////////////////////////////////////////////////////////////////
+
+repositories {
+  mavenCentral()
+}
+
+///////////////////////////////////////////////////////////////////////////
+// Configure SpotBugs
+///////////////////////////////////////////////////////////////////////////
+
+spotbugs {
+  toolVersion = '3.1.1'
+}
+
+// To generate an HTML report instead of XML
+tasks.withType(com.github.spotbugs.SpotBugsTask) {
+  reports {
+    xml.enabled = false
+    html.enabled = true
+    ignoreFailures = true
+  }
+}
+
