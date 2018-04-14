@@ -1,6 +1,6 @@
 package test;
 
-import com.neet.DiamondHunter.Main.*;
+import main.com.neet.DiamondHunter.Main.*;
 
 import java.awt.AWTException;
 import java.awt.Robot;
@@ -26,7 +26,7 @@ public class FullGameRun {
         
         try {
             robot = new Robot();
-            robot.setAutoDelay(150); //150 for normal game speed
+            robot.setAutoDelay(175); //150 for normal game speed
         } catch (AWTException e1) {
             e1.printStackTrace();
         }
@@ -50,7 +50,7 @@ public class FullGameRun {
             System.out.println("Started game");
             Thread.sleep(2000);
             down(3, false);right(3, false);down(4, false);panelPause(false);//Gets first diamond, go to next screen with diamond
-            System.out.println();
+            System.out.println();     
             left(1, false);down(5, false);right(2, false);down(1, false);right(3, false);//panelPause(false);   //Gets second diamond, go to next screen with diamond
             System.out.println();
             right(4, false);up(5, false);right(2, false);up(2, false);panelPause(false); //Gets third diamond, go to next screen with diamond
@@ -65,13 +65,78 @@ public class FullGameRun {
             rollBackMoves(44);
             down(1, false);up(1, false);space();up(2, false);right(2, false);up(2, false); panelPause(false);
             System.out.println();
-            up(1, false);left(2, false);
-            rollBackMoves(15);
+            up(1, false);left(2, false);panelPause(false);
             System.out.println();
-            left(3, false);down(2, false);panelPause(false);
+            rollBackMoves(0);
             System.out.println();
+            left(1, false);right(1, false);left(1, false);space();left(2, false);panelPause(false);
+            System.out.println();
+            left(2, false);
+            System.out.println();
+            rollBackMoves(1);
+            System.out.println();
+            down(4, false);panelPause(false);panelPause(false);
+            System.out.println();
+            down(5, false);left(2, false);down(3, false);panelPause(false);
+            System.out.println();
+            down(1, false);left(2, false);panelPause(false);
+            System.out.println();
+            left(1, false);down(1, false); left(3, false); down(1, false); space(); down(2, false); left(4, false);panelPause(false);
+            System.out.println();
+            left(3, false);up(6, false);panelPause(false);
+            System.out.println();
+            up(3, false);right(4, false);panelPause(false);
+            System.out.println();
+            right(1, false);up(2, false);right(2, false);up(1, false);space();up(2, false);panelPause(false);
+            System.out.println();
+            up(2, false);left(2, false);up(1, false);left(2, false);panelPause(false);
+            System.out.println();
+            left(5, false);up(2, false);right(2, false);down(1, false);up(1, false);space();up(3, false);panelPause(false);
+            System.out.println();
+            up(3, false);right(4, false);panelPause(false);
+            System.out.println();
+            right(6, false);up(3, false);left(2, false);up(2, false);
+            System.out.println();
+            up(3, false);left(5, false);panelPause(false);
+            System.out.println();
+            left(4, false);right(5, false);panelPause(false);
+            System.out.println();
+            right(4, false);down(4, false);panelPause(false);
+            System.out.println();
+            down(5, false);right(4, false);panelPause(false);
+            System.out.println();
+            right(4, false);left(1, false);up(6, false);panelPause(false);
+            System.out.println();
+            up(3, false);right(5, false);panelPause(false);
+            System.out.println();
+            right(8, false);panelPause(false);
+            System.out.println();
+            right(2, false);panelPause(false);
+            System.out.println();
+            left(3, false);panelPause(false);
+            System.out.println("\nQ");
+            left(4, false);down(4, false);panelPause(false);
+            System.out.println("\nR");
+            left(4, false);down(3, false);right(1, false);down(2, false);panelPause(false);
+            System.out.println("\nS");
+            down(1, false);left(2, false);down(4, false);right(5, false);down(2, false);panelPause(false);
+            System.out.println("\nT");
+            down(4, false);left(5, false);down(2, false);left(2, false);panelPause(false);
+            System.out.println("\nU");
+            left(2, false);down(2, false);panelPause(false);
+            System.out.println("\nV");
+            down(3, false);right(5, false);left(5, false);up(4, false);panelPause(false);
+            System.out.println("\nW");
+            up(1, false);right(3, false); panelPause(false);
+            System.out.println("\nX");
+            right(4, false);up(2, false);right(4, false);panelPause(false);
+            System.out.println("\nY");
+            right(2, false);down(1, false);right(2, false);down(3, false);panelPause(false);
+            System.out.println("\nZ");
+            down(6, false);
+            
             try {
-                Thread.sleep(1000);
+                Thread.sleep(100000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
