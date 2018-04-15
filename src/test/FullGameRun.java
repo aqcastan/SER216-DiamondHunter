@@ -26,7 +26,7 @@ public class FullGameRun {
         
         try {
             robot = new Robot();
-            robot.setAutoDelay(175); //150 for normal game speed
+            robot.setAutoDelay(175); //175 for normal game speed
         } catch (AWTException e1) {
             e1.printStackTrace();
         }
@@ -48,98 +48,110 @@ public class FullGameRun {
             robot.keyPress(KeyEvent.VK_ENTER);
             robot.keyRelease(KeyEvent.VK_ENTER);
             System.out.println("Started game");
+            long start = System.nanoTime();
             Thread.sleep(2000);
             down(3, false);right(3, false);down(4, false);panelPause(false);//Gets first diamond, go to next screen with diamond
-            System.out.println();     
-            left(1, false);down(5, false);right(2, false);down(1, false);right(3, false);//panelPause(false);   //Gets second diamond, go to next screen with diamond
-            System.out.println();
+            System.out.println("\nA");     
+            left(1, false);down(5, false);right(2, false);down(1, false);right(3, false);panelPause(false);   //Gets second diamond, go to next screen with diamond
+            System.out.println("\nB");
             right(4, false);up(5, false);right(2, false);up(2, false);panelPause(false); //Gets third diamond, go to next screen with diamond
-            System.out.println();
-            up(1, false);left(5, false);up(3, false);right(2, false);down(1, false);right(3, false);up(2, false);left(1, false);up(3, false);//panelPause(false);
-            System.out.println();
-            up(2, false);right(7, false);up(1, false);down(4, false);//panelPause(false);
-            System.out.println();
-            down(8, false);//panelPause(false);
-            System.out.println();
-            down(2, false);right(1, false);//panelPause(false);System.out.println("Got axe");
-            rollBackMoves(44);
+            System.out.println("\nC");
+            up(1, false);left(5, false);up(3, false);right(2, false);down(1, false);right(3, false);up(2, false);left(1, false);up(3, false);panelPause(false);
+            System.out.println("\nD");
+            up(2, false);right(3, false);panelPause(false);
+            System.out.println("\nD.A");
+            right(4, false);up(1, false);down(4, false);panelPause(false);
+            System.out.println("\nE");
+            down(8, false);panelPause(false);
+            System.out.println(System.nanoTime() - start);
+            down(2, false);right(1, false);panelPause(false);System.out.println("Got axe");
+            rollBackMoves(47);panelPause(false);
             down(1, false);up(1, false);space();up(2, false);right(2, false);up(2, false); panelPause(false);
-            System.out.println();
+            System.out.println(System.nanoTime() - start);
             up(1, false);left(2, false);panelPause(false);
-            System.out.println();
-            rollBackMoves(0);
-            System.out.println();
+            System.out.println(System.nanoTime() - start);
+            rollBackMoves(9);panelPause(false);
+            System.out.println(System.nanoTime() - start);
+            up(3, false);left(3, false);panelPause(false);
+            System.out.println(System.nanoTime() - start);
             left(1, false);right(1, false);left(1, false);space();left(2, false);panelPause(false);
-            System.out.println();
-            left(2, false);
-            System.out.println();
-            rollBackMoves(1);
-            System.out.println();
-            down(4, false);panelPause(false);panelPause(false);
-            System.out.println();
+            System.out.println(System.nanoTime() - start);
+            left(2, false);right(2, false);panelPause(false);
+            System.out.println(System.nanoTime() - start);
+            right(3, false);down(4, false);panelPause(false);
+            System.out.println(System.nanoTime() - start);
             down(5, false);left(2, false);down(3, false);panelPause(false);
-            System.out.println();
+            System.out.println(System.nanoTime() - start);
             down(1, false);left(2, false);panelPause(false);
-            System.out.println();
+            System.out.println(System.nanoTime() - start);
             left(1, false);down(1, false); left(3, false); down(1, false); space(); down(2, false); left(4, false);panelPause(false);
-            System.out.println();
+            System.out.println(System.nanoTime() - start);
             left(3, false);up(6, false);panelPause(false);
-            System.out.println();
+            System.out.println(System.nanoTime() - start);
             up(3, false);right(4, false);panelPause(false);
-            System.out.println();
+            System.out.println(System.nanoTime() - start);
             right(1, false);up(2, false);right(2, false);up(1, false);space();up(2, false);panelPause(false);
-            System.out.println();
+            System.out.println(System.nanoTime() - start);
             up(2, false);left(2, false);up(1, false);left(2, false);panelPause(false);
-            System.out.println();
+            System.out.println(System.nanoTime() - start);
             left(5, false);up(2, false);right(2, false);down(1, false);up(1, false);space();up(3, false);panelPause(false);
-            System.out.println();
+            System.out.println(System.nanoTime() - start);
             up(3, false);right(4, false);panelPause(false);
-            System.out.println();
-            right(6, false);up(3, false);left(2, false);up(2, false);
-            System.out.println();
+            System.out.println(System.nanoTime() - start);
+            right(6, false);up(3, false);left(2, false);up(2, false);panelPause(false);
+            System.out.println(System.nanoTime() - start);
             up(3, false);left(5, false);panelPause(false);
-            System.out.println();
+            System.out.println(System.nanoTime() - start);
             left(4, false);right(5, false);panelPause(false);
-            System.out.println();
+            System.out.println(System.nanoTime() - start);
             right(4, false);down(4, false);panelPause(false);
-            System.out.println();
+            System.out.println(System.nanoTime() - start);
             down(5, false);right(4, false);panelPause(false);
-            System.out.println();
+            System.out.println(System.nanoTime() - start);
             right(4, false);left(1, false);up(6, false);panelPause(false);
-            System.out.println();
+            System.out.println(System.nanoTime() - start);
             up(3, false);right(5, false);panelPause(false);
-            System.out.println();
+            System.out.println(System.nanoTime() - start);
             right(8, false);panelPause(false);
-            System.out.println();
+            System.out.println(System.nanoTime() - start);
             right(2, false);panelPause(false);
-            System.out.println();
+            System.out.println(System.nanoTime() - start);
             left(3, false);panelPause(false);
             System.out.println("\nQ");
             left(4, false);down(4, false);panelPause(false);
             System.out.println("\nR");
-            left(4, false);down(3, false);right(1, false);down(2, false);panelPause(false);
-            System.out.println("\nS");
-            down(1, false);left(2, false);down(4, false);right(5, false);down(2, false);panelPause(false);
-            System.out.println("\nT");
-            down(4, false);left(5, false);down(2, false);left(2, false);panelPause(false);
-            System.out.println("\nU");
+            down(3, false);left(1, false);down(3, false);right(1, false);down(2, false);panelPause(false);
+            System.out.println();
+            down(1, false);left(2, false);down(5, false);right(5, false);down(2, false);panelPause(false);
+            System.out.println();
+            down(4, false);left(4, false);down(2, false);left(3, false);panelPause(false);
+            System.out.println();
             left(2, false);down(2, false);panelPause(false);
-            System.out.println("\nV");
-            down(3, false);right(5, false);left(5, false);up(4, false);panelPause(false);
-            System.out.println("\nW");
-            up(1, false);right(3, false); panelPause(false);
-            System.out.println("\nX");
+            System.out.println();
+            down(1, false);right(3, false);panelPause(false);
+            System.out.println();
+            right(2, false);down(2, false);left(3, false);panelPause(false);
+            System.out.println();
+            left(2, false);up(4, false);panelPause(false);
+            System.out.println();
+            up(1, false);right(3, false);panelPause(false);
+            System.out.println();
             right(4, false);up(2, false);right(4, false);panelPause(false);
-            System.out.println("\nY");
-            right(2, false);down(1, false);right(2, false);down(3, false);panelPause(false);
-            System.out.println("\nZ");
-            down(6, false);
+            System.out.println();
+            right(1, false);down(1, false);right(3, false);down(3, false);panelPause(false);
+            System.out.println();
+            down(6, false);panelPause(false);
             
-            try {
-                Thread.sleep(100000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+            System.out.println("\nTesting if game is over");
+            
+            try{
+                Thread.sleep(2000);
+            } catch(Exception e) {
+                
             }
+            
+            GamePanel gp = Game.getGamePanel();
+            assertTrue(gp.getGameStateManager().getCurrentState() == 3);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -205,8 +217,13 @@ public class FullGameRun {
     
     private void panelPause(boolean rollback) {
         try {
-            Thread.sleep(000);
-            if (!rollback) moves.push(new Character('p'));
+            Thread.sleep(1000);
+            if (!rollback) {
+                char prevMove = moves.pop();
+                moves.push(new Character('p'));
+                moves.push(prevMove);
+                moveNum++;
+            }
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
