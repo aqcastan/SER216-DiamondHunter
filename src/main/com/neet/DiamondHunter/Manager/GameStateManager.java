@@ -65,6 +65,10 @@ public class GameStateManager {
 		}
 	}
 	
+	public int getCurrentState() {
+	    return currentState;
+	}
+	
 	public void unloadState(int i) {
 		gameStates[i] = null;
 	}

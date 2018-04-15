@@ -48,6 +48,8 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
 		requestFocus();
 	}
 	
+	public GameStateManager getGameStateManager() {return gsm;}
+	
 	// ready to display
 	public void addNotify() {
 		super.addNotify();
