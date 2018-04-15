@@ -24,7 +24,7 @@ import main.com.neet.DiamondHunter.TileMap.TileMap;
 public class PlayState extends GameState {
 	
 	// player
-	private Player player;
+	public static Player player;
 	
 	// tilemap
 	private TileMap tileMap;
@@ -35,6 +35,14 @@ public class PlayState extends GameState {
 	// items
 	private ArrayList<Item> items;
 	
+	public int getDiamonds() {
+		return diamonds.size();
+	}
+
+	public ArrayList<Item> getItems() {
+		return items;
+	}
+
 	// sparkles
 	private ArrayList<Sparkle> sparkles;
 	

@@ -20,7 +20,7 @@ public class GameStateManager {
 	
 	private boolean paused;
 	private PauseState pauseState;
-	
+	public static PlayState playState;
 	private GameState[] gameStates;
 	private int currentState;
 	private int previousState;
@@ -56,13 +56,17 @@ public class GameStateManager {
 			gameStates[i].init();
 		}
 		else if(i == PLAY) {
-			gameStates[i] = new PlayState(this);
+			playState = new PlayState(this);
+			gameStates[i] = playState;
 			gameStates[i].init();
 		}
 		else if(i == GAMEOVER) {
 			gameStates[i] = new GameOverState(this);
 			gameStates[i].init();
 		}
+	}
+	public GameState getState() {
+		return gameStates[currentState];
 	}
 	
 	public void unloadState(int i) {
@@ -81,7 +85,6 @@ public class GameStateManager {
 			gameStates[currentState].update();
 		}
 	}
-	
 	public void draw(Graphics2D g) {
 		if(paused) {
 			pauseState.draw(g);

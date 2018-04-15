@@ -39,7 +39,7 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
 	private Graphics2D g;
 	
 	// game state manager
-	private GameStateManager gsm;
+	public GameStateManager gsm;
 	
 	// constructor
 	public GamePanel() {

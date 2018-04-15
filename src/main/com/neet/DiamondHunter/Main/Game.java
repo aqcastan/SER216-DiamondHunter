@@ -7,12 +7,12 @@ package main.com.neet.DiamondHunter.Main;
 import javax.swing.JFrame;
 
 public class Game {
-	
+	public static GamePanel gp;
 	public static void main(String[] args) {
 		
 		JFrame window = new JFrame("Diamond Hunter");
-		
-		window.add(new GamePanel());
+		gp = new GamePanel();
+		window.add(gp);
 		
 		window.setResizable(false);
 		window.pack();
