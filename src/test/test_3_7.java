@@ -1,18 +1,19 @@
 package test;
 
-import main.com.neet.DiamondHunter.Main.*;
+import static org.junit.Assert.*;
 
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.util.Stack;
 
-import static org.junit.Assert.*;
-
 import org.junit.Before;
 import org.junit.Test;
 
-public class FullGameRun {
+import main.com.neet.DiamondHunter.Main.Game;
+import main.com.neet.DiamondHunter.Main.GamePanel;
+
+public class test_3_7 {
     
     Robot robot = null;
     Stack<Character> moves;
@@ -40,7 +41,7 @@ public class FullGameRun {
     }
 
     @Test
-    public void fullGameRunTest() {
+    public void GameOverStateTest() {
         try {
             System.out.println("Launched game");
             Thread.sleep(7000);
@@ -142,7 +143,7 @@ public class FullGameRun {
             System.out.println();
             down(6, false);panelPause(false);
             
-            System.out.println("\nTesting if game is over");
+            System.out.println("\nTesting all inputs except \"Enter\"");
             
             try{
                 Thread.sleep(2000);
@@ -150,11 +151,31 @@ public class FullGameRun {
                 
             }
             
+            for (int i = 65; i <= 90; i++) keyPress(i);     //Tests all letter keys
+            for (int i = 48; i <= 47; i++) keyPress(i);     //Tests all number keys     
+            for (int i = 37; i <= 40; i++) keyPress(i);     //Tests arrow keys
+            keyPress(KeyEvent.VK_BACK_QUOTE);
+            keyPress(KeyEvent.VK_MINUS);
+            keyPress(KeyEvent.VK_EQUALS);
+            keyPress(KeyEvent.VK_BACK_SLASH);
+            keyPress(KeyEvent.VK_SEMICOLON);
+            keyPress(KeyEvent.VK_QUOTE);
+            keyPress(KeyEvent.VK_COMMA);
+            keyPress(KeyEvent.VK_PERIOD);
+            keyPress(KeyEvent.VK_SLASH);
+            
+            
             GamePanel gp = Game.getGamePanel();
             assertTrue(gp.getGameStateManager().getCurrentState() == 3);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+    
+    private void keyPress(int keyPress) {
+        robot.keyPress(keyPress);
+        robot.keyRelease(keyPress);
+        System.out.println(keyPress);
     }
     
     private void down(int times, boolean rollback) {
