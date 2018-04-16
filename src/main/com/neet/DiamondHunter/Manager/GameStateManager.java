@@ -22,6 +22,7 @@ public class GameStateManager {
 	private boolean paused;
 	private PauseState pauseState;
 	private Player player;
+	private MenuState menuState;
 	
 	private GameState[] gameStates;
 	private int currentState;
@@ -54,8 +55,11 @@ public class GameStateManager {
 			gameStates[i].init();
 		}
 		else if(i == MENU) {
-			gameStates[i] = new MenuState(this);
+		    menuState = new MenuState(this);
+			gameStates[i] = menuState;
 			gameStates[i].init();
+			menuState = (MenuState) gameStates[i];
+			System.out.println("bleh");
 		}
 		else if(i == PLAY) {
 		    PlayState state = new PlayState(this);
@@ -74,6 +78,8 @@ public class GameStateManager {
 	public int getCurrentState() {
 	    return currentState;
 	}
+	
+	public MenuState getMenuState() {return menuState;}
 	
 	public void unloadState(int i) {
 		gameStates[i] = null;

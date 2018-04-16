@@ -1,25 +1,25 @@
 package test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
+
 import org.junit.Before;
 import org.junit.Test;
 
 import main.com.neet.DiamondHunter.Main.Game;
 import main.com.neet.DiamondHunter.Main.GamePanel;
 
-public class test_3_6 {
+public class test_3_4 {
     
     Robot robot = null;
-    int currentX, currentY, originalX, originalY;
     GamePanel gp;
 
     @Before
     public void setUp() throws Exception {
-        
+                
         try {
             robot = new Robot();
             robot.setAutoDelay(175); //175 for normal game speed
@@ -41,23 +41,12 @@ public class test_3_6 {
             System.out.println("Launched game");
             Thread.sleep(7000);
             System.out.println("In Main Menu");
-            robot.keyPress(KeyEvent.VK_ENTER);
-            robot.keyRelease(KeyEvent.VK_ENTER);
-            System.out.println("Started game");
             
             try {
                 Thread.sleep(1000);
             } catch (Exception e) {
                 
             }
-            
-            gp = Game.getGamePanel();
-            originalX = gp.getGameStateManager().getPlayer().getx();
-            originalY = gp.getGameStateManager().getPlayer().gety();
-            
-            System.out.println(originalX);
-            System.out.println(originalY);
-            
             
             System.out.println("\nTesting inputs");
             
@@ -66,6 +55,8 @@ public class test_3_6 {
             } catch(Exception e) {
                 
             }
+            
+            gp = Game.getGamePanel();
             
             for (int i = 65; i <= 90; i++) keyPress(i);     //Tests all letter keys
             for (int i = 48; i <= 47; i++) keyPress(i);     //Tests all number keys     
@@ -79,17 +70,8 @@ public class test_3_6 {
             keyPress(KeyEvent.VK_PERIOD);
             keyPress(KeyEvent.VK_SLASH);
             
-            
-            currentX = gp.getGameStateManager().getPlayer().getx();
-            currentY = gp.getGameStateManager().getPlayer().gety();
-            
-            System.out.println(currentX);
-            System.out.println(currentY);
-            
-            
-            assertTrue(gp.getGameStateManager().getCurrentState() == 2);
-            assertTrue(originalX == currentX);
-            assertTrue(originalY == currentY);
+            assertTrue(gp.getGameStateManager().getCurrentState() == 1);
+            assertTrue(gp.getGameStateManager().getMenuState().getCurrentOption() == 0);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -98,9 +80,7 @@ public class test_3_6 {
     private void keyPress(int keyPress) {
         robot.keyPress(keyPress);
         robot.keyRelease(keyPress);
-        System.out.println(keyPress);
-        assertTrue(gp.getGameStateManager().getPlayer().getx() == originalX);
-        assertTrue(gp.getGameStateManager().getPlayer().gety() == originalY);
-        
+        System.out.println(keyPress);    
+        assertTrue(gp.getGameStateManager().getMenuState().getCurrentOption() == 0);
     }
 }
