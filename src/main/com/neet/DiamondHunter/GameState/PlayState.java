@@ -59,6 +59,8 @@ public class PlayState extends GameState {
 		super(gsm);
 	}
 	
+	public Player getPlayer() {return player;}
+	
 	public void init() {
 		
 		// create lists
