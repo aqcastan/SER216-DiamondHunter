@@ -36,7 +36,7 @@ public class test_3_5 {
     }
 
     @Test
-    public void PlayStateTest() {
+    public void PauseStateTest() {
         try {
             System.out.println("Launched game");
             Thread.sleep(7000);

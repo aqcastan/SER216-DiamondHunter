@@ -36,7 +36,7 @@ public class test_3_4 {
     }
 
     @Test
-    public void PlayStateTest() {
+    public void MainMenuTest() {
         try {
             System.out.println("Launched game");
             Thread.sleep(7000);

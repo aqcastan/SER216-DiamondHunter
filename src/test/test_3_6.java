@@ -36,7 +36,7 @@ public class test_3_6 {
     }
 
     @Test
-    public void PlayStateTest() {
+    public void PlayStateTestNonMovementKeys() {
         try {
             System.out.println("Launched game");
             Thread.sleep(7000);

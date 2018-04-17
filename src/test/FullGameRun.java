@@ -26,7 +26,7 @@ public class FullGameRun {
         
         try {
             robot = new Robot();
-            robot.setAutoDelay(175); //175 for normal game speed
+            robot.setAutoDelay(200); //200 for normal game speed
         } catch (AWTException e1) {
             e1.printStackTrace();
         }
