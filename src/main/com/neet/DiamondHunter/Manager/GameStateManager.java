@@ -107,4 +107,6 @@ public class GameStateManager {
 		}
 	}
 	
+	public boolean getPaused() {return paused;}
+	
 }

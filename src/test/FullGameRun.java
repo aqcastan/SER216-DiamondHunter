@@ -17,6 +17,7 @@ public class FullGameRun {
     Robot robot = null;
     Stack<Character> moves;
     int moveNum;
+    Thread thread;
 
     @Before
     public void setUp() throws Exception {
@@ -26,17 +27,18 @@ public class FullGameRun {
         
         try {
             robot = new Robot();
-            robot.setAutoDelay(175); //175 for normal game speed
+            robot.setAutoDelay(200); //200 for normal game speed
         } catch (AWTException e1) {
             e1.printStackTrace();
         }
         
-        new Thread(new Runnable() {
+        thread = new Thread(new Runnable() {
             public void run() {
                 Game.main(null);
             }
 
-        }).run();
+        });
+        thread.run();
     }
 
     @Test
@@ -143,7 +145,7 @@ public class FullGameRun {
             down(6, false);panelPause(false);
             
             System.out.println("\nTesting if game is over");
-            
+                        
             try{
                 Thread.sleep(2000);
             } catch(Exception e) {
@@ -152,6 +154,8 @@ public class FullGameRun {
             
             GamePanel gp = Game.getGamePanel();
             assertTrue(gp.getGameStateManager().getCurrentState() == 3);
+            Game.disposePanel();
+            thread = null;
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

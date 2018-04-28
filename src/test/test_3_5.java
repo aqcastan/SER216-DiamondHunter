@@ -16,6 +16,7 @@ public class test_3_5 {
     Robot robot = null;
     int currentX, currentY, originalX, originalY;
     GamePanel gp;
+    Thread thread;
 
     @Before
     public void setUp() throws Exception {
@@ -27,16 +28,18 @@ public class test_3_5 {
             e1.printStackTrace();
         }
         
-        new Thread(new Runnable() {
+        thread = new Thread(new Runnable() {
             public void run() {
                 Game.main(null);
             }
 
-        }).run();
+        });
+        
+        thread.run();
     }
 
     @Test
-    public void PlayStateTest() {
+    public void PauseStateTest() {
         try {
             System.out.println("Launched game");
             Thread.sleep(7000);
@@ -95,6 +98,10 @@ public class test_3_5 {
             assertTrue(gp.getGameStateManager().getCurrentState() == 2);
             assertTrue(originalX == currentX);
             assertTrue(originalY == currentY);
+            
+            Game.disposePanel();
+            thread = null;
+            
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
