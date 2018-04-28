@@ -145,10 +145,7 @@ public class FullGameRun {
             down(6, false);panelPause(false);
             
             System.out.println("\nTesting if game is over");
-            
-            Game.disposePanel();
-            thread = null;
-            
+                        
             try{
                 Thread.sleep(2000);
             } catch(Exception e) {
@@ -157,6 +154,7 @@ public class FullGameRun {
             
             GamePanel gp = Game.getGamePanel();
             assertTrue(gp.getGameStateManager().getCurrentState() == 3);
+            Game.disposePanel();
             thread = null;
         } catch (InterruptedException e) {
             e.printStackTrace();
