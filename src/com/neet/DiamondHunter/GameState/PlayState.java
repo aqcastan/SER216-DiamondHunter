@@ -57,15 +57,18 @@ public class PlayState extends GameState {
 	
 	public PlayState(GameStateManager gsm) {
 		super(gsm);
+		
 	}
 	
 	public void init() {
-		
 		// create lists
 		diamonds = new ArrayList<Diamond>();
 		sparkles = new ArrayList<Sparkle>();
 		items = new ArrayList<Item>();
 		
+		
+		
+		if(gsm.getLevel() == 1) {
 		// load map
 		tileMap = new TileMap(16);
 		tileMap.loadTiles("/Tilesets/testtileset.gif");
@@ -76,7 +79,7 @@ public class PlayState extends GameState {
 		
 		// fill lists
 		populateDiamonds();
-		populateItems();
+		populateItemsLevel1();
 		
 		// initialize player
 		player.setTilePosition(17, 17);
@@ -84,8 +87,8 @@ public class PlayState extends GameState {
 		
 		// set up camera position
 		sectorSize = GamePanel.WIDTH;
-		xsector = player.getx() / sectorSize;
-		ysector = player.gety() / sectorSize;
+		xsector = player.getx()/ sectorSize;
+		ysector = player.gety()/ sectorSize;
 		tileMap.setPositionImmediately(-xsector * sectorSize, -ysector * sectorSize);
 		
 		// load hud
@@ -108,6 +111,51 @@ public class PlayState extends GameState {
 		boxes = new ArrayList<Rectangle>();
 		eventStart = true;
 		eventStart();
+		}
+		else if(gsm.getLevel() == 2) {
+			// load map
+			tileMap = new TileMap(16);
+			tileMap.loadTiles("/Tilesets/testtileset.gif");
+			tileMap.loadMap("/Maps/testmap2.map");
+			
+			// create player
+			player = new Player(tileMap);
+			
+			// fill lists
+			populateDiamonds();
+			populateItemsLevel2();
+			
+			// initialize player
+			player.setTilePosition(1, 1);
+			player.setTotalDiamonds(diamonds.size());
+			
+			// set up camera position
+			sectorSize = GamePanel.WIDTH;
+			xsector = player.getx() / sectorSize;
+			ysector = player.gety()/ sectorSize;
+			tileMap.setPositionImmediately(-xsector* sectorSize, -ysector* sectorSize);
+			
+			// load hud
+			hud = new Hud(player, diamonds);
+			
+			// load music
+			JukeBox.load("/Music/bgmusic.mp3", "music1");
+			JukeBox.setVolume("music1", -10);
+			JukeBox.loop("music1", 1000, 1000, JukeBox.getFrames("music1") - 1000);
+			JukeBox.load("/Music/finish.mp3", "finish");
+			JukeBox.setVolume("finish", -10);
+			
+			// load sfx
+			JukeBox.load("/SFX/collect.wav", "collect");
+			JukeBox.load("/SFX/mapmove.wav", "mapmove");
+			JukeBox.load("/SFX/tilechange.wav", "tilechange");
+			JukeBox.load("/SFX/splash.wav", "splash");
+			
+			// start event
+			boxes = new ArrayList<Rectangle>();
+			eventStart = true;
+			eventStart();
+		}
 			
 	}
 	
@@ -119,6 +167,7 @@ public class PlayState extends GameState {
 		d.setTilePosition(20, 20);
 		d.addChange(new int[] { 23, 19, 1 });
 		d.addChange(new int[] { 23, 20, 1 });
+	
 		diamonds.add(d);
 		d = new Diamond(tileMap);
 		d.setTilePosition(12, 36);
@@ -168,9 +217,10 @@ public class PlayState extends GameState {
 		d.setTilePosition(13, 20);
 		diamonds.add(d);
 		
+		
 	}
 	
-	private void populateItems() {
+	private void populateItemsLevel1() {
 		
 		Item item;
 		
@@ -184,6 +234,18 @@ public class PlayState extends GameState {
 		item.setTilePosition(12, 4);
 		items.add(item);
 		
+	}
+	private void populateItemsLevel2() {
+		Item item;
+		item = new Item(tileMap);
+		item.setType(Item.BOAT);
+		item.setTilePosition(3,3);
+		items.add(item);
+		
+		item = new Item(tileMap);
+		item.setType(Item.AXE);
+		item.setTilePosition(29, 16);
+		items.add(item);
 	}
 	
 	public void update() {
@@ -203,8 +265,8 @@ public class PlayState extends GameState {
 		int oldxs = xsector;
 		int oldys = ysector;
 		xsector = player.getx() / sectorSize;
-		ysector = player.gety() / sectorSize;
-		tileMap.setPosition(-xsector * sectorSize, -ysector * sectorSize);
+		ysector = player.gety() /sectorSize;
+		tileMap.setPosition(-xsector * sectorSize, -ysector* sectorSize);
 		tileMap.update();
 		
 		if(oldxs != xsector || oldys != ysector) {
@@ -380,6 +442,7 @@ public class PlayState extends GameState {
 				Data.setTime(player.getTicks());
 				gsm.setState(GameStateManager.GAMEOVER);
 			}
+			
 		}
 	}
 	

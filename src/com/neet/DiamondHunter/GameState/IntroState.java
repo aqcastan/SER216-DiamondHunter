@@ -9,6 +9,7 @@ import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
 
 import com.neet.DiamondHunter.Main.GamePanel;
+import com.neet.DiamondHunter.Manager.Content;
 import com.neet.DiamondHunter.Manager.GameStateManager;
 import com.neet.DiamondHunter.Manager.Keys;
 
@@ -21,7 +22,7 @@ public class IntroState extends GameState {
 	
 	private final int FADE_IN = 60;
 	private final int LENGTH = 60;
-	private final int FADE_OUT = 60;
+	private final int FADE_OUT = 150;
 	
 	public IntroState(GameStateManager gsm) {
 		super(gsm);
@@ -53,12 +54,28 @@ public class IntroState extends GameState {
 		}
 	}
 	
+	
 	public void draw(Graphics2D g) {
 		g.setColor(Color.WHITE);
 		g.fillRect(0, 0, GamePanel.WIDTH, GamePanel.HEIGHT2);
 		g.drawImage(logo, 0, 0, GamePanel.WIDTH, GamePanel.HEIGHT2, null);
 		g.setColor(new Color(0, 0, 0, alpha));
 		g.fillRect(0, 0, GamePanel.WIDTH, GamePanel.HEIGHT2);
+		
+		if(ticks > FADE_IN + LENGTH) {
+		Content.drawString(g, "Controls", 40, 30);
+		
+		Content.drawString(g, "arrow", 12, 76);
+		Content.drawString(g, "keys", 16, 84);
+		Content.drawString(g, ": move", 52, 80);
+		
+		Content.drawString(g, "space", 12, 96);
+		Content.drawString(g, ": action", 52, 96);
+		
+		Content.drawString(g, "ESC:", 36, 112);
+		Content.drawString(g, "pause", 68, 108);
+		//Content.drawString(g, "to menu", 68, 116);
+		}
 	}
 	
 	public void handleInput() {

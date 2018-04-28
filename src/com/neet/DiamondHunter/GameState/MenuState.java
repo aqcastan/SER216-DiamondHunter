@@ -1,5 +1,5 @@
 // The main menu GameState.
-//David
+
 package com.neet.DiamondHunter.GameState;
 
 import java.awt.Graphics2D;
@@ -26,6 +26,7 @@ public class MenuState extends GameState {
 	}
 	
 	public void init() {
+		gsm.setLevel(1);
 		bg = Content.MENUBG[0][0];
 		diamond = Content.DIAMOND[0][0];
 		JukeBox.load("/SFX/collect.wav", "collect");
@@ -69,7 +70,6 @@ public class MenuState extends GameState {
 		}
 		if(currentOption == 1) {
 			System.exit(0);
-			System.out.println();
 		}
 	}
 	

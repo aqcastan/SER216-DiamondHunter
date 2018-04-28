@@ -24,16 +24,20 @@ public class GameStateManager {
 	private GameState[] gameStates;
 	private int currentState;
 	private int previousState;
+	private int levelState;
 	
 	public static final int NUM_STATES = 4;
 	public static final int INTRO = 0;
 	public static final int MENU = 1;
 	public static final int PLAY = 2;
 	public static final int GAMEOVER = 3;
+	private static int LEVEL;
+	
 	
 	public GameStateManager() {
 		
 		JukeBox.init();
+		
 		
 		paused = false;
 		pauseState = new PauseState(this);
@@ -41,6 +45,12 @@ public class GameStateManager {
 		gameStates = new GameState[NUM_STATES];
 		setState(INTRO);
 		
+	}
+	public void setLevel(int i) {
+			LEVEL = i;
+	}
+	public int getLevel() {
+		return LEVEL;
 	}
 	
 	public void setState(int i) {

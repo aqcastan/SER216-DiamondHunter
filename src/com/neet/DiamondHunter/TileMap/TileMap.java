@@ -56,6 +56,7 @@ public class TileMap {
 		speed = 4;
 	}
 	
+	
 	public void loadTiles(String s) {
 		
 		try {
@@ -163,8 +164,11 @@ public class TileMap {
 		ydest = y;
 	}
 	public void setPositionImmediately(int x, int y) {
+
 		this.x = x;
 		this.y = y;
+	
+		
 	}
 	
 	public void fixBounds() {
