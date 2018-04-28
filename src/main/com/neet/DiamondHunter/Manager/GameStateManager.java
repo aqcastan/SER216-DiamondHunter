@@ -24,10 +24,20 @@ public class GameStateManager {
 	private Player player;
 	private MenuState menuState;
 	
+	public static PlayState playState;
 	private GameState[] gameStates;
 	private int currentState;
 	private int previousState;
-	
+	private static int players = 1;
+	private boolean multiPlayer = false;
+	private long[] ticks = new long[2];
+
+	public boolean isMultiPlayer() {
+		return multiPlayer;
+	}
+	public void setMultiPlayer(boolean multiPlayer) {
+		this.multiPlayer = multiPlayer;
+	}
 	public static final int NUM_STATES = 4;
 	public static final int INTRO = 0;
 	public static final int MENU = 1;
@@ -44,6 +54,12 @@ public class GameStateManager {
 		gameStates = new GameState[NUM_STATES];
 		setState(INTRO);
 		
+	}
+	public int getPlayers() {
+		return players;
+	}
+	public void setPlayers(int num) {
+		this.players = num;
 	}
 	
 	public void setState(int i) {
@@ -62,15 +78,43 @@ public class GameStateManager {
 			System.out.println("bleh");
 		}
 		else if(i == PLAY) {
+<<<<<<< HEAD
 		    PlayState state = new PlayState(this);
 			gameStates[i] = state;
+=======
+			if (isMultiPlayer()) {
+				playState = new PlayState(this, true);
+			}
+			else { 
+				playState = new PlayState(this, false);
+			}
+			gameStates[i] = playState;
+>>>>>>> Mitchell
 			gameStates[i].init();
 			player = state.getPlayer();
 		}
 		else if(i == GAMEOVER) {
-			gameStates[i] = new GameOverState(this);
-			gameStates[i].init();
+			if (isMultiPlayer()) {
+				if (players == 1) {
+					players++;
+					ticks[0] = Data.getTime();
+					gameStates[i] = new PlayState(this, true);
+					gameStates[i].init();
+				}
+				else {
+					ticks[1] = Data.getTime();
+					gameStates[i] = new GameOverState(this, ticks);
+					gameStates[i].init();
+				}
+			}
+			else {
+				gameStates[i] = new GameOverState(this);
+				gameStates[i].init();
+			}
 		}
+	}
+	public GameState getState() {
+		return gameStates[currentState];
 	}
 	
 	public Player getPlayer() {return player;}
@@ -97,7 +141,6 @@ public class GameStateManager {
 			gameStates[currentState].update();
 		}
 	}
-	
 	public void draw(Graphics2D g) {
 		if(paused) {
 			pauseState.draw(g);

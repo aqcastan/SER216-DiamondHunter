@@ -34,6 +34,7 @@ public class Player extends Entity {
 	private final int LEFTBOAT = 5;
 	private final int RIGHTBOAT = 6;
 	private final int UPBOAT = 7;
+	private final int id;
 	
 	// gameplay
 	private int numDiamonds;
@@ -43,10 +44,10 @@ public class Player extends Entity {
 	private boolean onWater;
 	private long ticks;
 	
-	public Player(TileMap tm) {
+	public Player(TileMap tm, int pNum) {
 		
 		super(tm);
-		
+		id = pNum;
 		width = 16;
 		height = 16;
 		cwidth = 12;
@@ -186,6 +187,10 @@ public class Player extends Entity {
 	// Draw Player.
 	public void draw(Graphics2D g) {
 		super.draw(g);
+	}
+
+	public int getId() {
+		return id;
 	}
 	
 }
