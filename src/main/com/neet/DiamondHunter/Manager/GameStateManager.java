@@ -24,7 +24,16 @@ public class GameStateManager {
 	private GameState[] gameStates;
 	private int currentState;
 	private int previousState;
-	
+	private static int players = 1;
+	private boolean multiPlayer = false;
+	private long[] ticks = new long[2];
+
+	public boolean isMultiPlayer() {
+		return multiPlayer;
+	}
+	public void setMultiPlayer(boolean multiPlayer) {
+		this.multiPlayer = multiPlayer;
+	}
 	public static final int NUM_STATES = 4;
 	public static final int INTRO = 0;
 	public static final int MENU = 1;
@@ -42,6 +51,12 @@ public class GameStateManager {
 		setState(INTRO);
 		
 	}
+	public int getPlayers() {
+		return players;
+	}
+	public void setPlayers(int num) {
+		this.players = num;
+	}
 	
 	public void setState(int i) {
 		previousState = currentState;
@@ -56,13 +71,33 @@ public class GameStateManager {
 			gameStates[i].init();
 		}
 		else if(i == PLAY) {
-			playState = new PlayState(this);
+			if (isMultiPlayer()) {
+				playState = new PlayState(this, true);
+			}
+			else { 
+				playState = new PlayState(this, false);
+			}
 			gameStates[i] = playState;
 			gameStates[i].init();
 		}
 		else if(i == GAMEOVER) {
-			gameStates[i] = new GameOverState(this);
-			gameStates[i].init();
+			if (isMultiPlayer()) {
+				if (players == 1) {
+					players++;
+					ticks[0] = Data.getTime();
+					gameStates[i] = new PlayState(this, true);
+					gameStates[i].init();
+				}
+				else {
+					ticks[1] = Data.getTime();
+					gameStates[i] = new GameOverState(this, ticks);
+					gameStates[i].init();
+				}
+			}
+			else {
+				gameStates[i] = new GameOverState(this);
+				gameStates[i].init();
+			}
 		}
 	}
 	public GameState getState() {

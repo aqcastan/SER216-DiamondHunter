@@ -25,6 +25,7 @@ public class PlayState extends GameState {
 	
 	// player
 	public static Player player;
+	private int playerNum;
 	
 	// tilemap
 	private TileMap tileMap;
@@ -59,12 +60,16 @@ public class PlayState extends GameState {
 	private boolean eventStart;
 	private boolean eventFinish;
 	private int eventTick;
-	
+	private boolean multimode = false;
 	// transition box
 	private ArrayList<Rectangle> boxes;
 	
-	public PlayState(GameStateManager gsm) {
+	public PlayState(GameStateManager gsm, boolean multimode) {
 		super(gsm);
+		if (multimode == true) {
+			this.multimode = true;
+			playerNum = gsm.getPlayers();
+		}
 	}
 	
 	public void init() {
@@ -80,7 +85,7 @@ public class PlayState extends GameState {
 		tileMap.loadMap("/Maps/testmap.map");
 		
 		// create player
-		player = new Player(tileMap);
+		player = new Player(tileMap, playerNum);
 		
 		// fill lists
 		populateDiamonds();

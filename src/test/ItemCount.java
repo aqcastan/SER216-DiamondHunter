@@ -28,7 +28,7 @@ public class ItemCount {
 	public void setUp() throws Exception {
 		gsm = new GameStateManager();
 		gsm.setState(PLAYSTATE);
-		ps = new PlayState(gsm);
+		ps = new PlayState(gsm, false);
 		ps.init();
 		diamondCount = ps.getDiamonds();
 		items = ps.getItems();

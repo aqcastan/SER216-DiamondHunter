@@ -43,25 +43,26 @@ public class TimerTest {
 		Thread.sleep(3000); //Delay 3 seconds
 		robot.keyPress(KeyEvent.VK_ENTER);
 		robot.keyRelease(KeyEvent.VK_ENTER); //Launch game
-		Thread.sleep(2000); //Two second delay until timer starts
+		Thread.sleep(2000);
 		sysStartTime = System.nanoTime();
 		Thread.sleep(10000); //Wait 10 seconds
-		sysEndTime = System.nanoTime();		
 		robot.keyPress(KeyEvent.VK_ESCAPE); //Pause
+		sysEndTime = System.nanoTime();	
 		robot.keyRelease(KeyEvent.VK_ESCAPE);
-		gameTime = (int) (Game.gp.gsm.playState.player.getTicks() / 30) % 60; //Get current game time
+		gameTime = Math.round((Game.gp.gsm.playState.player.getTicks() / 30) % 60); //Get current game time
 		duration = (sysEndTime - sysStartTime)/1000000000; //Record times
 		System.out.println("SystemTime: " + duration);
 		System.out.println("GameTime: " + gameTime);
 		//Repeat
-		Thread.sleep(10000);
+		Thread.sleep(5000);
 		robot.keyPress(KeyEvent.VK_ESCAPE);
 		robot.keyRelease(KeyEvent.VK_ESCAPE);
 		sysStartTime = System.nanoTime();		
 		Thread.sleep(10000);
+//		sysEndTime = System.nanoTime();
+//		System.out.println("SystemTime: " + duration);
+		gameTime = Math.round((Game.gp.gsm.playState.player.getTicks() / 30) % 60); //Get current game time
 		sysEndTime = System.nanoTime();
-		System.out.println("SystemTime: " + duration);
-		gameTime = (int) (Game.gp.gsm.playState.player.getTicks() / 30) % 60; //Get current game time
 		duration = duration + ((sysEndTime - sysStartTime)/1000000000);
 		System.out.println("SystemTime: " + duration);
 		System.out.println("GameTime: " + gameTime);

@@ -99,7 +99,7 @@
 <br/>
 </p>
 <h2>Metrics</h2>
-<p>1296 lines of code analyzed,
+<p>1312 lines of code analyzed,
 	in 22 classes, 
 	in 6 packages.</p>
 <table width="500" cellpadding="5" cellspacing="2">
@@ -110,23 +110,23 @@
 </tr>
 <tr class="tablerow0">
 <td>High Priority Warnings</td>
-<td align="right">15</td>
-<td align="right">11.57</td>
+<td align="right">17</td>
+<td align="right">12.96</td>
 </tr>
 <tr class="tablerow1">
 <td>Medium Priority Warnings</td>
-<td align="right">23</td>
-<td align="right">17.75</td>
+<td align="right">26</td>
+<td align="right">19.82</td>
 </tr>
 <tr class="$totalClass">
 <td>
 <b>Total Warnings</b>
 </td>
 <td align="right">
-<b>38</b>
+<b>43</b>
 </td>
 <td align="right">
-<b>29.32</b>
+<b>32.77</b>
 </td>
 </tr>
 </table>
@@ -180,7 +180,7 @@
 <td>
 <a href="#Warnings_MALICIOUS_CODE">Malicious code vulnerability Warnings</a>
 </td>
-<td align="right">19</td>
+<td align="right">22</td>
 </tr>
 <tr class="tablerow1">
 <td>
@@ -192,14 +192,14 @@
 <td>
 <a href="#Warnings_STYLE">Dodgy code Warnings</a>
 </td>
-<td align="right">3</td>
+<td align="right">5</td>
 </tr>
 <tr class="tablerow1">
 <td>
 <b>Total</b>
 </td>
 <td align="right">
-<b>38</b>
+<b>43</b>
 </td>
 </tr>
 </table>
@@ -227,7 +227,7 @@
 <br/>In class main.com.neet.DiamondHunter.GameState.MenuState<br/>In method main.com.neet.DiamondHunter.GameState.MenuState.selectOption()<br/>At MenuState.java:[line 71]</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N67498');">
+<tr class="tablerow0" onclick="toggleRow('N67776');">
 <td>
 <span class="priority-2">OS</span>
 </td>
@@ -236,7 +236,7 @@
 <tr class="detailrow0">
 <td/>
 <td>
-<p id="N67498" style="display: none;">
+<p id="N67776" style="display: none;">
 <a href="#OS_OPEN_STREAM">Bug type OS_OPEN_STREAM (click for details)</a>
 <br/>In class main.com.neet.DiamondHunter.TileMap.TileMap<br/>In method main.com.neet.DiamondHunter.TileMap.TileMap.loadMap(String)<br/>Need to close java.io.Reader <br/>At TileMap.java:[line 99]</p>
 </td>
@@ -250,7 +250,7 @@
 <th align="left">Code</th>
 <th align="left">Warning</th>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N67368');">
+<tr class="tablerow1" onclick="toggleRow('N67646');">
 <td>
 <span class="priority-1">Dm</span>
 </td>
@@ -259,7 +259,7 @@
 <tr class="detailrow1">
 <td/>
 <td>
-<p id="N67368" style="display: none;">
+<p id="N67646" style="display: none;">
 <a href="#DM_DEFAULT_ENCODING">Bug type DM_DEFAULT_ENCODING (click for details)</a>
 <br/>In class main.com.neet.DiamondHunter.TileMap.TileMap<br/>In method main.com.neet.DiamondHunter.TileMap.TileMap.loadMap(String)<br/>Called method new java.io.InputStreamReader(InputStream)<br/>At TileMap.java:[line 99]</p>
 </td>
@@ -287,7 +287,35 @@
 <br/>In class main.com.neet.DiamondHunter.Entity.Animation<br/>In method main.com.neet.DiamondHunter.Entity.Animation.setFrames(BufferedImage[])<br/>Field main.com.neet.DiamondHunter.Entity.Animation.frames<br/>Local variable named frames<br/>At Animation.java:[line 25]</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N66436');">
+<tr class="tablerow0" onclick="toggleRow('N66334');">
+<td>
+<span class="priority-2">MS</span>
+</td>
+<td>main.com.neet.DiamondHunter.GameState.PlayState.player should be package protected</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N66334" style="display: none;">
+<a href="#MS_PKGPROTECT">Bug type MS_PKGPROTECT (click for details)</a>
+<br/>In class main.com.neet.DiamondHunter.GameState.PlayState<br/>Field main.com.neet.DiamondHunter.GameState.PlayState.player<br/>In PlayState.java</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N66449');">
+<td>
+<span class="priority-2">MS</span>
+</td>
+<td>main.com.neet.DiamondHunter.Main.Game.gp should be package protected</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N66449" style="display: none;">
+<a href="#MS_PKGPROTECT">Bug type MS_PKGPROTECT (click for details)</a>
+<br/>In class main.com.neet.DiamondHunter.Main.Game<br/>Field main.com.neet.DiamondHunter.Main.Game.gp<br/>In Game.java</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N66599');">
 <td>
 <span class="priority-2">MS</span>
 </td>
@@ -296,12 +324,12 @@
 <tr class="detailrow0">
 <td/>
 <td>
-<p id="N66436" style="display: none;">
+<p id="N66599" style="display: none;">
 <a href="#MS_FINAL_PKGPROTECT">Bug type MS_FINAL_PKGPROTECT (click for details)</a>
 <br/>In class main.com.neet.DiamondHunter.Manager.Content<br/>Field main.com.neet.DiamondHunter.Manager.Content.font<br/>At Content.java:[line 22]</p>
 </td>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N66488');">
+<tr class="tablerow1" onclick="toggleRow('N66651');">
 <td>
 <span class="priority-1">MS</span>
 </td>
@@ -310,12 +338,12 @@
 <tr class="detailrow1">
 <td/>
 <td>
-<p id="N66488" style="display: none;">
+<p id="N66651" style="display: none;">
 <a href="#MS_MUTABLE_ARRAY">Bug type MS_MUTABLE_ARRAY (click for details)</a>
 <br/>In class main.com.neet.DiamondHunter.Manager.Content<br/>Field main.com.neet.DiamondHunter.Manager.Content.BAR<br/>At Content.java:[line 15]</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N66540');">
+<tr class="tablerow0" onclick="toggleRow('N66703');">
 <td>
 <span class="priority-1">MS</span>
 </td>
@@ -324,12 +352,12 @@
 <tr class="detailrow0">
 <td/>
 <td>
-<p id="N66540" style="display: none;">
+<p id="N66703" style="display: none;">
 <a href="#MS_MUTABLE_ARRAY">Bug type MS_MUTABLE_ARRAY (click for details)</a>
 <br/>In class main.com.neet.DiamondHunter.Manager.Content<br/>Field main.com.neet.DiamondHunter.Manager.Content.DIAMOND<br/>At Content.java:[line 18]</p>
 </td>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N66592');">
+<tr class="tablerow1" onclick="toggleRow('N66755');">
 <td>
 <span class="priority-1">MS</span>
 </td>
@@ -338,12 +366,12 @@
 <tr class="detailrow1">
 <td/>
 <td>
-<p id="N66592" style="display: none;">
+<p id="N66755" style="display: none;">
 <a href="#MS_MUTABLE_ARRAY">Bug type MS_MUTABLE_ARRAY (click for details)</a>
 <br/>In class main.com.neet.DiamondHunter.Manager.Content<br/>Field main.com.neet.DiamondHunter.Manager.Content.ITEMS<br/>At Content.java:[line 20]</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N66644');">
+<tr class="tablerow0" onclick="toggleRow('N66807');">
 <td>
 <span class="priority-1">MS</span>
 </td>
@@ -352,12 +380,12 @@
 <tr class="detailrow0">
 <td/>
 <td>
-<p id="N66644" style="display: none;">
+<p id="N66807" style="display: none;">
 <a href="#MS_MUTABLE_ARRAY">Bug type MS_MUTABLE_ARRAY (click for details)</a>
 <br/>In class main.com.neet.DiamondHunter.Manager.Content<br/>Field main.com.neet.DiamondHunter.Manager.Content.MENUBG<br/>At Content.java:[line 14]</p>
 </td>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N66696');">
+<tr class="tablerow1" onclick="toggleRow('N66859');">
 <td>
 <span class="priority-1">MS</span>
 </td>
@@ -366,12 +394,12 @@
 <tr class="detailrow1">
 <td/>
 <td>
-<p id="N66696" style="display: none;">
+<p id="N66859" style="display: none;">
 <a href="#MS_MUTABLE_ARRAY">Bug type MS_MUTABLE_ARRAY (click for details)</a>
 <br/>In class main.com.neet.DiamondHunter.Manager.Content<br/>Field main.com.neet.DiamondHunter.Manager.Content.PLAYER<br/>At Content.java:[line 17]</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N66748');">
+<tr class="tablerow0" onclick="toggleRow('N66911');">
 <td>
 <span class="priority-1">MS</span>
 </td>
@@ -380,12 +408,12 @@
 <tr class="detailrow0">
 <td/>
 <td>
-<p id="N66748" style="display: none;">
+<p id="N66911" style="display: none;">
 <a href="#MS_MUTABLE_ARRAY">Bug type MS_MUTABLE_ARRAY (click for details)</a>
 <br/>In class main.com.neet.DiamondHunter.Manager.Content<br/>Field main.com.neet.DiamondHunter.Manager.Content.SPARKLE<br/>At Content.java:[line 19]</p>
 </td>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N66800');">
+<tr class="tablerow1" onclick="toggleRow('N66963');">
 <td>
 <span class="priority-2">MS</span>
 </td>
@@ -394,147 +422,161 @@
 <tr class="detailrow1">
 <td/>
 <td>
-<p id="N66800" style="display: none;">
+<p id="N66963" style="display: none;">
 <a href="#MS_PKGPROTECT">Bug type MS_PKGPROTECT (click for details)</a>
 <br/>In class main.com.neet.DiamondHunter.Manager.Data<br/>Field main.com.neet.DiamondHunter.Manager.Data.time<br/>In Data.java</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N66848');">
+<tr class="tablerow0" onclick="toggleRow('N67011');">
+<td>
+<span class="priority-2">MS</span>
+</td>
+<td>main.com.neet.DiamondHunter.Manager.GameStateManager.playState should be package protected</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N67011" style="display: none;">
+<a href="#MS_PKGPROTECT">Bug type MS_PKGPROTECT (click for details)</a>
+<br/>In class main.com.neet.DiamondHunter.Manager.GameStateManager<br/>Field main.com.neet.DiamondHunter.Manager.GameStateManager.playState<br/>In GameStateManager.java</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N67126');">
 <td>
 <span class="priority-2">MS</span>
 </td>
 <td>main.com.neet.DiamondHunter.Manager.Keys.keyState should be both final and package protected</td>
 </tr>
-<tr class="detailrow0">
+<tr class="detailrow1">
 <td/>
 <td>
-<p id="N66848" style="display: none;">
+<p id="N67126" style="display: none;">
 <a href="#MS_FINAL_PKGPROTECT">Bug type MS_FINAL_PKGPROTECT (click for details)</a>
 <br/>In class main.com.neet.DiamondHunter.Manager.Keys<br/>Field main.com.neet.DiamondHunter.Manager.Keys.keyState<br/>At Keys.java:[line 19]</p>
 </td>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N66900');">
+<tr class="tablerow0" onclick="toggleRow('N67178');">
 <td>
 <span class="priority-2">MS</span>
 </td>
 <td>main.com.neet.DiamondHunter.Manager.Keys.prevKeyState should be both final and package protected</td>
 </tr>
-<tr class="detailrow1">
+<tr class="detailrow0">
 <td/>
 <td>
-<p id="N66900" style="display: none;">
+<p id="N67178" style="display: none;">
 <a href="#MS_FINAL_PKGPROTECT">Bug type MS_FINAL_PKGPROTECT (click for details)</a>
 <br/>In class main.com.neet.DiamondHunter.Manager.Keys<br/>Field main.com.neet.DiamondHunter.Manager.Keys.prevKeyState<br/>At Keys.java:[line 20]</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N66952');">
+<tr class="tablerow1" onclick="toggleRow('N67230');">
 <td>
 <span class="priority-1">MS</span>
 </td>
 <td>main.com.neet.DiamondHunter.Manager.Keys.DOWN isn't final but should be</td>
 </tr>
-<tr class="detailrow0">
+<tr class="detailrow1">
 <td/>
 <td>
-<p id="N66952" style="display: none;">
+<p id="N67230" style="display: none;">
 <a href="#MS_SHOULD_BE_FINAL">Bug type MS_SHOULD_BE_FINAL (click for details)</a>
 <br/>In class main.com.neet.DiamondHunter.Manager.Keys<br/>Field main.com.neet.DiamondHunter.Manager.Keys.DOWN<br/>At Keys.java:[line 24]</p>
 </td>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N67004');">
+<tr class="tablerow0" onclick="toggleRow('N67282');">
 <td>
 <span class="priority-1">MS</span>
 </td>
 <td>main.com.neet.DiamondHunter.Manager.Keys.ENTER isn't final but should be</td>
 </tr>
-<tr class="detailrow1">
+<tr class="detailrow0">
 <td/>
 <td>
-<p id="N67004" style="display: none;">
+<p id="N67282" style="display: none;">
 <a href="#MS_SHOULD_BE_FINAL">Bug type MS_SHOULD_BE_FINAL (click for details)</a>
 <br/>In class main.com.neet.DiamondHunter.Manager.Keys<br/>Field main.com.neet.DiamondHunter.Manager.Keys.ENTER<br/>At Keys.java:[line 27]</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N67056');">
+<tr class="tablerow1" onclick="toggleRow('N67334');">
 <td>
 <span class="priority-1">MS</span>
 </td>
 <td>main.com.neet.DiamondHunter.Manager.Keys.ESCAPE isn't final but should be</td>
 </tr>
-<tr class="detailrow0">
+<tr class="detailrow1">
 <td/>
 <td>
-<p id="N67056" style="display: none;">
+<p id="N67334" style="display: none;">
 <a href="#MS_SHOULD_BE_FINAL">Bug type MS_SHOULD_BE_FINAL (click for details)</a>
 <br/>In class main.com.neet.DiamondHunter.Manager.Keys<br/>Field main.com.neet.DiamondHunter.Manager.Keys.ESCAPE<br/>At Keys.java:[line 28]</p>
 </td>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N67108');">
+<tr class="tablerow0" onclick="toggleRow('N67386');">
 <td>
 <span class="priority-1">MS</span>
 </td>
 <td>main.com.neet.DiamondHunter.Manager.Keys.F1 isn't final but should be</td>
 </tr>
-<tr class="detailrow1">
+<tr class="detailrow0">
 <td/>
 <td>
-<p id="N67108" style="display: none;">
+<p id="N67386" style="display: none;">
 <a href="#MS_SHOULD_BE_FINAL">Bug type MS_SHOULD_BE_FINAL (click for details)</a>
 <br/>In class main.com.neet.DiamondHunter.Manager.Keys<br/>Field main.com.neet.DiamondHunter.Manager.Keys.F1<br/>At Keys.java:[line 29]</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N67160');">
+<tr class="tablerow1" onclick="toggleRow('N67438');">
 <td>
 <span class="priority-1">MS</span>
 </td>
 <td>main.com.neet.DiamondHunter.Manager.Keys.LEFT isn't final but should be</td>
 </tr>
-<tr class="detailrow0">
+<tr class="detailrow1">
 <td/>
 <td>
-<p id="N67160" style="display: none;">
+<p id="N67438" style="display: none;">
 <a href="#MS_SHOULD_BE_FINAL">Bug type MS_SHOULD_BE_FINAL (click for details)</a>
 <br/>In class main.com.neet.DiamondHunter.Manager.Keys<br/>Field main.com.neet.DiamondHunter.Manager.Keys.LEFT<br/>At Keys.java:[line 23]</p>
 </td>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N67212');">
+<tr class="tablerow0" onclick="toggleRow('N67490');">
 <td>
 <span class="priority-1">MS</span>
 </td>
 <td>main.com.neet.DiamondHunter.Manager.Keys.RIGHT isn't final but should be</td>
 </tr>
-<tr class="detailrow1">
+<tr class="detailrow0">
 <td/>
 <td>
-<p id="N67212" style="display: none;">
+<p id="N67490" style="display: none;">
 <a href="#MS_SHOULD_BE_FINAL">Bug type MS_SHOULD_BE_FINAL (click for details)</a>
 <br/>In class main.com.neet.DiamondHunter.Manager.Keys<br/>Field main.com.neet.DiamondHunter.Manager.Keys.RIGHT<br/>At Keys.java:[line 25]</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N67264');">
+<tr class="tablerow1" onclick="toggleRow('N67542');">
 <td>
 <span class="priority-1">MS</span>
 </td>
 <td>main.com.neet.DiamondHunter.Manager.Keys.SPACE isn't final but should be</td>
 </tr>
-<tr class="detailrow0">
+<tr class="detailrow1">
 <td/>
 <td>
-<p id="N67264" style="display: none;">
+<p id="N67542" style="display: none;">
 <a href="#MS_SHOULD_BE_FINAL">Bug type MS_SHOULD_BE_FINAL (click for details)</a>
 <br/>In class main.com.neet.DiamondHunter.Manager.Keys<br/>Field main.com.neet.DiamondHunter.Manager.Keys.SPACE<br/>At Keys.java:[line 26]</p>
 </td>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N67316');">
+<tr class="tablerow0" onclick="toggleRow('N67594');">
 <td>
 <span class="priority-1">MS</span>
 </td>
 <td>main.com.neet.DiamondHunter.Manager.Keys.UP isn't final but should be</td>
 </tr>
-<tr class="detailrow1">
+<tr class="detailrow0">
 <td/>
 <td>
-<p id="N67316" style="display: none;">
+<p id="N67594" style="display: none;">
 <a href="#MS_SHOULD_BE_FINAL">Bug type MS_SHOULD_BE_FINAL (click for details)</a>
 <br/>In class main.com.neet.DiamondHunter.Manager.Keys<br/>Field main.com.neet.DiamondHunter.Manager.Keys.UP<br/>At Keys.java:[line 22]</p>
 </td>
@@ -702,7 +744,7 @@
 <br/>In class main.com.neet.DiamondHunter.GameState.IntroState<br/>Field main.com.neet.DiamondHunter.GameState.IntroState.LENGTH<br/>At IntroState.java:[line 23]</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N66334');">
+<tr class="tablerow0" onclick="toggleRow('N66497');">
 <td>
 <span class="priority-2">SS</span>
 </td>
@@ -711,12 +753,12 @@
 <tr class="detailrow0">
 <td/>
 <td>
-<p id="N66334" style="display: none;">
+<p id="N66497" style="display: none;">
 <a href="#SS_SHOULD_BE_STATIC">Bug type SS_SHOULD_BE_STATIC (click for details)</a>
 <br/>In class main.com.neet.DiamondHunter.Main.GamePanel<br/>Field main.com.neet.DiamondHunter.Main.GamePanel.FPS<br/>At GamePanel.java:[line 34]</p>
 </td>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N66385');">
+<tr class="tablerow1" onclick="toggleRow('N66548');">
 <td>
 <span class="priority-2">SS</span>
 </td>
@@ -725,7 +767,7 @@
 <tr class="detailrow1">
 <td/>
 <td>
-<p id="N66385" style="display: none;">
+<p id="N66548" style="display: none;">
 <a href="#SS_SHOULD_BE_STATIC">Bug type SS_SHOULD_BE_STATIC (click for details)</a>
 <br/>In class main.com.neet.DiamondHunter.Main.GamePanel<br/>Field main.com.neet.DiamondHunter.Main.GamePanel.TARGET_TIME<br/>At GamePanel.java:[line 35]</p>
 </td>
@@ -739,7 +781,7 @@
 <th align="left">Code</th>
 <th align="left">Warning</th>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N67437');">
+<tr class="tablerow1" onclick="toggleRow('N67715');">
 <td>
 <span class="priority-2">NP</span>
 </td>
@@ -748,12 +790,12 @@
 <tr class="detailrow1">
 <td/>
 <td>
-<p id="N67437" style="display: none;">
+<p id="N67715" style="display: none;">
 <a href="#NP_DEREFERENCE_OF_READLINE_VALUE">Bug type NP_DEREFERENCE_OF_READLINE_VALUE (click for details)</a>
 <br/>In class main.com.neet.DiamondHunter.TileMap.TileMap<br/>In method main.com.neet.DiamondHunter.TileMap.TileMap.loadMap(String)<br/>Value loaded from line<br/>At TileMap.java:[line 119]</p>
 </td>
 </tr>
-<tr class="tablerow0" onclick="toggleRow('N67564');">
+<tr class="tablerow0" onclick="toggleRow('N67842');">
 <td>
 <span class="priority-2">SA</span>
 </td>
@@ -762,12 +804,12 @@
 <tr class="detailrow0">
 <td/>
 <td>
-<p id="N67564" style="display: none;">
+<p id="N67842" style="display: none;">
 <a href="#SA_FIELD_DOUBLE_ASSIGNMENT">Bug type SA_FIELD_DOUBLE_ASSIGNMENT (click for details)</a>
 <br/>In class main.com.neet.DiamondHunter.TileMap.TileMap<br/>In method main.com.neet.DiamondHunter.TileMap.TileMap.loadMap(String)<br/>Field main.com.neet.DiamondHunter.TileMap.TileMap.xmin<br/>Did you mean to refer to the field main.com.neet.DiamondHunter.TileMap.TileMap.ymin?<br/>At TileMap.java:[line 110]</p>
 </td>
 </tr>
-<tr class="tablerow1" onclick="toggleRow('N67645');">
+<tr class="tablerow1" onclick="toggleRow('N67923');">
 <td>
 <span class="priority-2">SA</span>
 </td>
@@ -776,9 +818,37 @@
 <tr class="detailrow1">
 <td/>
 <td>
-<p id="N67645" style="display: none;">
+<p id="N67923" style="display: none;">
 <a href="#SA_FIELD_DOUBLE_ASSIGNMENT">Bug type SA_FIELD_DOUBLE_ASSIGNMENT (click for details)</a>
 <br/>In class main.com.neet.DiamondHunter.TileMap.TileMap<br/>In method main.com.neet.DiamondHunter.TileMap.TileMap.loadMap(String)<br/>Field main.com.neet.DiamondHunter.TileMap.TileMap.ymin<br/>Did you mean to refer to the field main.com.neet.DiamondHunter.TileMap.TileMap.xmin?<br/>At TileMap.java:[line 113]</p>
+</td>
+</tr>
+<tr class="tablerow0" onclick="toggleRow('N66382');">
+<td>
+<span class="priority-1">ST</span>
+</td>
+<td>Write to static field main.com.neet.DiamondHunter.GameState.PlayState.player from instance method main.com.neet.DiamondHunter.GameState.PlayState.init()</td>
+</tr>
+<tr class="detailrow0">
+<td/>
+<td>
+<p id="N66382" style="display: none;">
+<a href="#ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD">Bug type ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD (click for details)</a>
+<br/>In class main.com.neet.DiamondHunter.GameState.PlayState<br/>In method main.com.neet.DiamondHunter.GameState.PlayState.init()<br/>Field main.com.neet.DiamondHunter.GameState.PlayState.player<br/>At PlayState.java:[line 83]</p>
+</td>
+</tr>
+<tr class="tablerow1" onclick="toggleRow('N67059');">
+<td>
+<span class="priority-1">ST</span>
+</td>
+<td>Write to static field main.com.neet.DiamondHunter.Manager.GameStateManager.playState from instance method main.com.neet.DiamondHunter.Manager.GameStateManager.setState(int)</td>
+</tr>
+<tr class="detailrow1">
+<td/>
+<td>
+<p id="N67059" style="display: none;">
+<a href="#ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD">Bug type ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD (click for details)</a>
+<br/>In class main.com.neet.DiamondHunter.Manager.GameStateManager<br/>In method main.com.neet.DiamondHunter.Manager.GameStateManager.setState(int)<br/>Field main.com.neet.DiamondHunter.Manager.GameStateManager.playState<br/>At GameStateManager.java:[line 59]</p>
 </td>
 </tr>
 </table>
@@ -902,6 +972,16 @@ public void foo() {
   <p> This class contains an instance final field that
    is initialized to a compile-time static value.
    Consider making the field static.</p>
+
+    
+<h2>
+<a name="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD">ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD: Write to static field from instance method</a>
+</h2>
+
+  <p> This instance method writes to a static field. This is tricky to get
+correct if multiple instances are being manipulated,
+and generally bad practice.
+</p>
 
     </body>
 </html>
