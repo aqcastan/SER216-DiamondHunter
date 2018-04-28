@@ -8,19 +8,27 @@ import javax.swing.JFrame;
 
 public class Game {
 	
+    private static GamePanel gp = null;
+    static JFrame window;
+    
 	public static void main(String[] args) {
 		
-		JFrame window = new JFrame("Diamond Hunter");
+		window = new JFrame("Diamond Hunter");
 		
-		window.add(new GamePanel());
+		gp = new GamePanel();
+		
+		window.add(gp);
 		
 		window.setResizable(false);
 		window.pack();
 		
 		window.setLocationRelativeTo(null);
 		window.setVisible(true);
-		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		
 	}
+	
+	public static GamePanel getGamePanel() {return gp;}
+	public static void disposePanel() {window.dispose();}
 	
 }

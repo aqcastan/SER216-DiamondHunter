@@ -72,4 +72,6 @@ public class MenuState extends GameState {
 		}
 	}
 	
+	public int getCurrentOption() {return currentOption;}
+	
 }
