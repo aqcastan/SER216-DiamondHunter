@@ -6,6 +6,7 @@ import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -16,6 +17,7 @@ public class test_2_2 {
     
     Robot robot = null;
     GamePanel gp;
+    Thread thread;
 
     @Before
     public void setUp() throws Exception {
@@ -27,12 +29,19 @@ public class test_2_2 {
             e1.printStackTrace();
         }
         
-        new Thread(new Runnable() {
+        thread = new Thread(new Runnable() {
             public void run() {
                 Game.main(null);
             }
 
-        }).run();
+        });
+        
+        thread.run();
+    }
+    
+    @After
+    public void tearDown() throws Exception {
+        gp = null;
     }
 
     @Test
@@ -91,6 +100,10 @@ public class test_2_2 {
             
             assertTrue(gp.getGameStateManager().getCurrentState() == 2);
             assertTrue(gp.getGameStateManager().getPaused());
+            
+            Game.disposePanel();
+            thread = null;
+            
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

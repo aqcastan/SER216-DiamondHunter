@@ -18,6 +18,7 @@ public class test_3_7 {
     Robot robot = null;
     Stack<Character> moves;
     int moveNum;
+    Thread thread;
 
     @Before
     public void setUp() throws Exception {
@@ -32,12 +33,14 @@ public class test_3_7 {
             e1.printStackTrace();
         }
         
-        new Thread(new Runnable() {
+        thread = new Thread(new Runnable() {
             public void run() {
                 Game.main(null);
             }
 
-        }).run();
+        });
+        
+        thread.run();
     }
 
     @Test
@@ -167,6 +170,9 @@ public class test_3_7 {
             
             GamePanel gp = Game.getGamePanel();
             assertTrue(gp.getGameStateManager().getCurrentState() == 3);
+            
+            Game.disposePanel();
+            thread = null;
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

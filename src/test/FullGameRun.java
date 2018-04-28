@@ -17,6 +17,7 @@ public class FullGameRun {
     Robot robot = null;
     Stack<Character> moves;
     int moveNum;
+    Thread thread;
 
     @Before
     public void setUp() throws Exception {
@@ -31,12 +32,13 @@ public class FullGameRun {
             e1.printStackTrace();
         }
         
-        new Thread(new Runnable() {
+        thread = new Thread(new Runnable() {
             public void run() {
                 Game.main(null);
             }
 
-        }).run();
+        });
+        thread.run();
     }
 
     @Test
@@ -144,6 +146,9 @@ public class FullGameRun {
             
             System.out.println("\nTesting if game is over");
             
+            Game.disposePanel();
+            thread = null;
+            
             try{
                 Thread.sleep(2000);
             } catch(Exception e) {
@@ -152,6 +157,7 @@ public class FullGameRun {
             
             GamePanel gp = Game.getGamePanel();
             assertTrue(gp.getGameStateManager().getCurrentState() == 3);
+            thread = null;
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

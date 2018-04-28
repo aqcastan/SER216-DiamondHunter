@@ -88,7 +88,8 @@ public class PlayState extends GameState {
 		sectorSize = GamePanel.WIDTH;
 		xsector = player.getx() / sectorSize;
 		ysector = player.gety() / sectorSize;
-		tileMap.setPositionImmediately(-xsector * sectorSize, -ysector * sectorSize);
+		//tileMap.setPositionImmediately(-xsector * sectorSize, -ysector * sectorSize);   //Old camera setup
+		tileMap.setPositionImmediately(-((int)(player.getx()/128.0 * sectorSize - 64)), -((int)(player.gety()/128.0 * sectorSize - 64)));    //Centers player on camera
 		
 		// load hud
 		hud = new Hud(player, diamonds);
@@ -206,7 +207,16 @@ public class PlayState extends GameState {
 		int oldys = ysector;
 		xsector = player.getx() / sectorSize;
 		ysector = player.gety() / sectorSize;
-		tileMap.setPosition(-xsector * sectorSize, -ysector * sectorSize);
+		double playerX = player.getx()/128.0;
+		double playerY = player.gety()/128.0;
+		if (player.getx() >= 576) playerX = (tileMap.getWidth() - 64)/128.0;
+		else if (player.getx() <= 64) playerX = 64/128.0;
+		if (player.gety() >= 576) playerY = (tileMap.getHeight() - 64)/128.0;
+		else if (player.gety() <= 64) playerY = 64/128.0;
+		//tileMap.setPosition(-xsector * sectorSize, -ysector * sectorSize);  //Old camera control
+		//Keeps player centered on camera
+		tileMap.setPosition(-((int)(playerX * sectorSize - 64)), -((int)(playerY * sectorSize - 64)));
+		System.out.println(player.getx() + " " + player.gety());
 		tileMap.update();
 		
 		if(oldxs != xsector || oldys != ysector) {
