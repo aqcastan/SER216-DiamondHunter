@@ -78,7 +78,7 @@ public class PlayState extends GameState {
 		player = new Player(tileMap);
 		
 		// fill lists
-		populateDiamonds();
+		populateDiamonds1();
 		populateItemsLevel1();
 		
 		// initialize player
@@ -122,7 +122,7 @@ public class PlayState extends GameState {
 			player = new Player(tileMap);
 			
 			// fill lists
-			populateDiamonds();
+			populateDiamonds2();
 			populateItemsLevel2();
 			
 			// initialize player
@@ -159,7 +159,7 @@ public class PlayState extends GameState {
 			
 	}
 	
-	private void populateDiamonds() {
+	private void populateDiamonds1() {
 		
 		Diamond d;
 		
@@ -219,6 +219,60 @@ public class PlayState extends GameState {
 		
 		
 	}
+	private void populateDiamonds2() {
+		Diamond d;
+		
+		d = new Diamond(tileMap);
+		d.setTilePosition(2, 3);
+		diamonds.add(d);
+		
+		d = new Diamond(tileMap);
+		d.setTilePosition(7, 8);
+		diamonds.add(d);
+		
+		d = new Diamond(tileMap);
+		d.setTilePosition(1, 12);
+		diamonds.add(d);
+		
+		d = new Diamond(tileMap);
+		d.setTilePosition(5, 18);
+		diamonds.add(d);
+		
+		d = new Diamond(tileMap);
+		d.setTilePosition(6, 24);
+		diamonds.add(d);
+		d = new Diamond(tileMap);
+		d.setTilePosition(1, 28);
+		diamonds.add(d);
+		d = new Diamond(tileMap);
+		d.setTilePosition(6, 34);
+		diamonds.add(d);
+		d = new Diamond(tileMap);
+		d.setTilePosition(8, 33);
+		diamonds.add(d);
+		d = new Diamond(tileMap);
+		d.setTilePosition(38, 38);
+		diamonds.add(d);
+		d = new Diamond(tileMap);
+		d.setTilePosition(37, 25);
+		diamonds.add(d);
+		d = new Diamond(tileMap);
+		d.setTilePosition(26, 20);
+		diamonds.add(d);
+		d = new Diamond(tileMap);
+		d.setTilePosition(22, 16);
+		diamonds.add(d);
+		d = new Diamond(tileMap);
+		d.setTilePosition(30, 8);
+		diamonds.add(d);
+		d = new Diamond(tileMap);
+		d.setTilePosition(26, 2);
+		diamonds.add(d);
+		d = new Diamond(tileMap);
+		d.setTilePosition(5, 18);
+		diamonds.add(d);
+		
+	}
 	
 	private void populateItemsLevel1() {
 		
@@ -244,7 +298,7 @@ public class PlayState extends GameState {
 		
 		item = new Item(tileMap);
 		item.setType(Item.AXE);
-		item.setTilePosition(29, 16);
+		item.setTilePosition(28, 15);
 		items.add(item);
 	}
 	
