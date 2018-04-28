@@ -216,7 +216,6 @@ public class PlayState extends GameState {
 		//tileMap.setPosition(-xsector * sectorSize, -ysector * sectorSize);  //Old camera control
 		//Keeps player centered on camera
 		tileMap.setPosition(-((int)(playerX * sectorSize - 64)), -((int)(playerY * sectorSize - 64)));
-		System.out.println(player.getx() + " " + player.gety());
 		tileMap.update();
 		
 		if(oldxs != xsector || oldys != ysector) {
