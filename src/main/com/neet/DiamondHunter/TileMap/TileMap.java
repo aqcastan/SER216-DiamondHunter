@@ -2,7 +2,7 @@
 // and a 2d array of the map.
 // Each index in the map corresponds to a specific tile.
 
-package main.com.neet.DiamondHunter.TileMap;
+package com.neet.DiamondHunter.TileMap;
 
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
@@ -12,7 +12,7 @@ import java.io.InputStreamReader;
 
 import javax.imageio.ImageIO;
 
-import main.com.neet.DiamondHunter.Main.GamePanel;
+import com.neet.DiamondHunter.Main.GamePanel;
 
 public class TileMap {
 	
@@ -53,8 +53,9 @@ public class TileMap {
 		this.tileSize = tileSize;
 		numRowsToDraw = GamePanel.HEIGHT / tileSize + 2;
 		numColsToDraw = GamePanel.WIDTH / tileSize + 2;
-		speed = 4;   //DEFAULT 4
+		speed = 4;
 	}
+	
 	
 	public void loadTiles(String s) {
 		
@@ -163,8 +164,11 @@ public class TileMap {
 		ydest = y;
 	}
 	public void setPositionImmediately(int x, int y) {
+
 		this.x = x;
 		this.y = y;
+	
+		
 	}
 	
 	public void fixBounds() {
@@ -239,22 +243,3 @@ public class TileMap {
 	}
 	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

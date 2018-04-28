@@ -52,9 +52,9 @@ public class Player extends Entity {
 		cwidth = 12;
 		cheight = 12;
 		
-		moveSpeed = 2;   //DEFAULT 2
+		moveSpeed = 2;
 		
-		numDiamonds = 0;
+		numDiamonds = 12;
 		
 		downSprites = Content.PLAYER[0];
 		leftSprites = Content.PLAYER[1];
@@ -187,5 +187,4 @@ public class Player extends Entity {
 	public void draw(Graphics2D g) {
 		super.draw(g);
 	}
-	
 }
