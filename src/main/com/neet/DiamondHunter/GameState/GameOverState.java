@@ -85,7 +85,7 @@ public class GameOverState extends GameState {
 		else if(currentOption == 1) g.drawImage(diamond, 25, 96, null);
 		}
 		else if(gsm.getLevel() == 2) {
-			Content.drawString(g, "PRESS ENTER", 44,100);
+			Content.drawString(g, "PRESS ENTER", 20,100);
 		}
 		}
 	public void handleInput() {

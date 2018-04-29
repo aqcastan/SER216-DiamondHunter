@@ -62,14 +62,12 @@ public class PlayState extends GameState {
     public Player getPlayer() {return player;}
     
     public void init() {
-        // create lists
+
+        if(gsm.getLevel() == 1) {
+         // create lists
         diamonds = new ArrayList<Diamond>();
         sparkles = new ArrayList<Sparkle>();
         items = new ArrayList<Item>();
-        
-        
-        
-        if(gsm.getLevel() == 1) {
         // load map
         tileMap = new TileMap(16);
         tileMap.loadTiles("/Tilesets/testtileset.gif");
@@ -114,6 +112,9 @@ public class PlayState extends GameState {
         eventStart();
         }
         else if(gsm.getLevel() == 2) {
+            diamonds = new ArrayList<Diamond>();
+            sparkles = new ArrayList<Sparkle>();
+            items = new ArrayList<Item>();
             // load map
             tileMap = new TileMap(16);
             tileMap.loadTiles("/Tilesets/testtileset.gif");
