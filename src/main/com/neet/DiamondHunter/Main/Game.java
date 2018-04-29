@@ -16,7 +16,7 @@ public class Game {
 		window = new JFrame("Diamond Hunter");
 		
 		gp = new GamePanel();
-		
+
 		window.add(gp);
 		
 		window.setResizable(false);
