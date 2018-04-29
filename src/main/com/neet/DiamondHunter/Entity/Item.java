@@ -28,10 +28,10 @@ public class Item extends Entity{
 	public void setType(int i) {
 		type = i;
 		if(type == BOAT) {
-			sprite = Content.ITEMS[1][0];
+			sprite = Content.getITEMS()[1][0];
 		}
 		else if(type == AXE) {
-			sprite = Content.ITEMS[1][1];
+			sprite = Content.getITEMS()[1][1];
 		}
 	}
 	

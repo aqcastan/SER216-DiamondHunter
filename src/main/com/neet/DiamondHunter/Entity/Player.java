@@ -56,14 +56,14 @@ public class Player extends Entity {
 		
 		numDiamonds = 0;
 		
-		downSprites = Content.PLAYER[0];
-		leftSprites = Content.PLAYER[1];
-		rightSprites = Content.PLAYER[2];
-		upSprites = Content.PLAYER[3];
-		downBoatSprites = Content.PLAYER[4];
-		leftBoatSprites = Content.PLAYER[5];
-		rightBoatSprites = Content.PLAYER[6];
-		upBoatSprites = Content.PLAYER[7];
+		downSprites = Content.getPLAYER()[0];
+		leftSprites = Content.getPLAYER()[1];
+		rightSprites = Content.getPLAYER()[2];
+		upSprites = Content.getPLAYER()[3];
+		downBoatSprites = Content.getPLAYER()[4];
+		leftBoatSprites = Content.getPLAYER()[5];
+		rightBoatSprites = Content.getPLAYER()[6];
+		upBoatSprites = Content.getPLAYER()[7];
 		
 		animation.setFrames(downSprites);
 		animation.setDelay(10);
