@@ -53,8 +53,9 @@ public class TileMap {
 		this.tileSize = tileSize;
 		numRowsToDraw = GamePanel.HEIGHT / tileSize + 2;
 		numColsToDraw = GamePanel.WIDTH / tileSize + 2;
-		speed = 4;   //DEFAULT 4
+		speed = 4;
 	}
+	
 	
 	public void loadTiles(String s) {
 		
@@ -163,8 +164,11 @@ public class TileMap {
 		ydest = y;
 	}
 	public void setPositionImmediately(int x, int y) {
+
 		this.x = x;
 		this.y = y;
+	
+		
 	}
 	
 	public void fixBounds() {
@@ -239,22 +243,3 @@ public class TileMap {
 	}
 	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
