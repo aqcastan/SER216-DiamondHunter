@@ -54,7 +54,7 @@ public class Player extends Entity {
 		
 		moveSpeed = 2;
 		
-		numDiamonds = 10;
+		numDiamonds = 0;
 		
 		downSprites = Content.PLAYER[0];
 		leftSprites = Content.PLAYER[1];
