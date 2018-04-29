@@ -11,7 +11,6 @@ package main.com.neet.DiamondHunter.GameState;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
-import java.awt.image.BufferedImage;
 
 import main.com.neet.DiamondHunter.Main.GamePanel;
 import main.com.neet.DiamondHunter.Manager.Content;
@@ -23,15 +22,10 @@ import main.com.neet.DiamondHunter.Manager.Keys;
 public class GameOverState extends GameState {
 	
 	private Color color;
-	private BufferedImage diamond;
+	
 	private int rank;
 	private long ticks;
 	private long[] playerTimes;
-	private int currentOption = 0;
-	private String[] options = {
-		"CONTINUE",
-		"QUIT"
-	};
 	
 	public GameOverState(GameStateManager gsm) {
 		super(gsm);
@@ -52,20 +46,9 @@ public class GameOverState extends GameState {
 		else {
 			color = new Color(164, 198, 222);
 		}
-		//bg = Content.MENUBG[0][0];
-		diamond = Content.DIAMOND[0][0];
-		color = new Color(164, 198, 222);
-		ticks = Data.getTime();
-		if(ticks < 3600) rank = 1;
-		else if(ticks < 5400) rank = 2;
-		else if(ticks < 7200) rank = 3;
-		else rank = 4;
-		
 	}
 	
-	public void update() {
-		handleInput();
-	}
+	public void update() {}
 	
 	public void draw(Graphics2D g) {
 		if (gsm.isMultiPlayer()) {
@@ -122,53 +105,13 @@ public class GameOverState extends GameState {
 			Content.drawString(g, "press any key", 12, 110);
 		}
 		
+	}
 	
-		Content.drawString(g, "rank", 48, 66);
-		if(rank == 1) Content.drawString(g, "speed demon", 20, 78);
-		else if(rank == 2) Content.drawString(g, "adventurer", 24, 78);
-		else if(rank == 3) Content.drawString(g, "beginner", 32, 78);
-		else if(rank == 4) Content.drawString(g, "bumbling idiot", 8, 78);
-		
-		if(gsm.getLevel() == 1) {
-		
-		Content.drawString(g, options[0], 44, 90);
-		Content.drawString(g, options[1], 48, 100);
-		
-		if(currentOption == 0) g.drawImage(diamond, 25, 86, null);
-		else if(currentOption == 1) g.drawImage(diamond, 25, 96, null);
-		}
-		else if(gsm.getLevel() == 2) {
-			Content.drawString(g, "PRESS ENTER", 20,100);
-		}
-		}
 	public void handleInput() {
-		if(gsm.getLevel() == 1) {
-			
-		if(Keys.isPressed(Keys.DOWN) && currentOption < options.length - 1) {
-			JukeBox.play("menuoption");
-			currentOption++;
-		}
-		if(Keys.isPressed(Keys.UP) && currentOption > 0) {
-			JukeBox.play("menuoption");
-			currentOption--;
-		}
-
-		if(Keys.isPressed(Keys.ENTER) && currentOption < options.length) {
-		    System.out.println("Going to level 2");
-			gsm.setLevel(2);
-			gsm.setState(GameStateManager.PLAY);
+		if(Keys.isPressed(Keys.ENTER)) {
+			gsm.setState(GameStateManager.MENU);
 			JukeBox.play("collect");
 		}
-		if(Keys.isPressed(Keys.ENTER) && currentOption > 0) {
-			gsm.setState(GameStateManager.MENU);
-			
-		}
-		}
-		else {
-			if(Keys.isPressed(Keys.ENTER)){
-				gsm.setState(GameStateManager.MENU);
-		}
-			
 	}
-	}
+	
 }

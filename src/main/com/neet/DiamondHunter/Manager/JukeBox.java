@@ -128,5 +128,4 @@ public class JukeBox {
 		if(c == null) return false;
 		return c.isRunning();
 	}
-	
 }

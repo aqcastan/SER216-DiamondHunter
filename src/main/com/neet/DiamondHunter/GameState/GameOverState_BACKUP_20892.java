@@ -26,12 +26,15 @@ public class GameOverState extends GameState {
 	private BufferedImage diamond;
 	private int rank;
 	private long ticks;
+<<<<<<< HEAD
 	private long[] playerTimes;
+=======
 	private int currentOption = 0;
 	private String[] options = {
 		"CONTINUE",
 		"QUIT"
 	};
+>>>>>>> origin/dev
 	
 	public GameOverState(GameStateManager gsm) {
 		super(gsm);
@@ -42,6 +45,7 @@ public class GameOverState extends GameState {
 	}
 	
 	public void init() {
+<<<<<<< HEAD
 		if (!gsm.isMultiPlayer()) {
 			color = new Color(164, 198, 222);
 			if(ticks < 3600) rank = 1;
@@ -52,6 +56,7 @@ public class GameOverState extends GameState {
 		else {
 			color = new Color(164, 198, 222);
 		}
+=======
 		//bg = Content.MENUBG[0][0];
 		diamond = Content.DIAMOND[0][0];
 		color = new Color(164, 198, 222);
@@ -61,6 +66,7 @@ public class GameOverState extends GameState {
 		else if(ticks < 7200) rank = 3;
 		else rank = 4;
 		
+>>>>>>> origin/dev
 	}
 	
 	public void update() {
@@ -122,7 +128,10 @@ public class GameOverState extends GameState {
 			Content.drawString(g, "press any key", 12, 110);
 		}
 		
+<<<<<<< HEAD
+	}
 	
+=======
 		Content.drawString(g, "rank", 48, 66);
 		if(rank == 1) Content.drawString(g, "speed demon", 20, 78);
 		else if(rank == 2) Content.drawString(g, "adventurer", 24, 78);
@@ -141,6 +150,7 @@ public class GameOverState extends GameState {
 			Content.drawString(g, "PRESS ENTER", 20,100);
 		}
 		}
+>>>>>>> origin/dev
 	public void handleInput() {
 		if(gsm.getLevel() == 1) {
 			

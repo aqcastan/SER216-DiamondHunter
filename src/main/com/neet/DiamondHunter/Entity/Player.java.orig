@@ -188,7 +188,12 @@ public class Player extends Entity {
 	public void draw(Graphics2D g) {
 		super.draw(g);
 	}
+<<<<<<< HEAD
+
 	public int getId() {
 		return id;
 	}
+	
+=======
+>>>>>>> origin/dev
 }

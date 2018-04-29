@@ -48,8 +48,6 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
 		requestFocus();
 	}
 	
-	public GameStateManager getGameStateManager() {return gsm;}
-	
 	// ready to display
 	public void addNotify() {
 		super.addNotify();
@@ -100,6 +98,7 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
 		image = new BufferedImage(WIDTH, HEIGHT2, 1);
 		g = (Graphics2D) image.getGraphics();
 		gsm = new GameStateManager();
+		gsm.setLevel(1);
 	}
 	
 	// updates game
