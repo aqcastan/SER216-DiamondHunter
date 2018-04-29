@@ -94,7 +94,6 @@ public class GameOverState extends GameState {
 			else {
 				Content.drawString(g, "Its a tie", 9, 50);
 			}
-			Content.drawString(g, "press any key", 9, 110);
 		}
 		else {
 			g.setColor(color);
@@ -118,8 +117,6 @@ public class GameOverState extends GameState {
 			else if(rank == 2) Content.drawString(g, "adventurer", 24, 78);
 			else if(rank == 3) Content.drawString(g, "beginner", 32, 78);
 			else if(rank == 4) Content.drawString(g, "bumbling idiot", 8, 78);
-			
-			Content.drawString(g, "press any key", 12, 110);
 		}
 		
 	
@@ -129,7 +126,7 @@ public class GameOverState extends GameState {
 		else if(rank == 3) Content.drawString(g, "beginner", 32, 78);
 		else if(rank == 4) Content.drawString(g, "bumbling idiot", 8, 78);
 		
-		if(gsm.getLevel() == 1) {
+		if(gsm.getLevel() == 1 && !gsm.isMultiPlayer()) {
 		
 		Content.drawString(g, options[0], 44, 90);
 		Content.drawString(g, options[1], 48, 100);
@@ -139,6 +136,8 @@ public class GameOverState extends GameState {
 		}
 		else if(gsm.getLevel() == 2) {
 			Content.drawString(g, "PRESS ENTER", 20,100);
+		} else {
+		    Content.drawString(g, "PRESS ENTER", 20,100);
 		}
 		}
 	public void handleInput() {
@@ -153,20 +152,24 @@ public class GameOverState extends GameState {
 			currentOption--;
 		}
 
-		if(Keys.isPressed(Keys.ENTER) && currentOption < options.length) {
+		if(Keys.isPressed(Keys.ENTER) && currentOption < options.length && !gsm.isMultiPlayer()) {
 		    System.out.println("Going to level 2");
 			gsm.setLevel(2);
 			gsm.setState(GameStateManager.PLAY);
 			JukeBox.play("collect");
 		}
-		if(Keys.isPressed(Keys.ENTER) && currentOption > 0) {
+		if(Keys.isPressed(Keys.ENTER) && currentOption > 0 || Keys.isPressed(Keys.ENTER) && gsm.isMultiPlayer()) {
 			gsm.setState(GameStateManager.MENU);
+			gsm.setMultiPlayer(false);
+			gsm.setPlayers(1);
 			
 		}
 		}
 		else {
 			if(Keys.isPressed(Keys.ENTER)){
 				gsm.setState(GameStateManager.MENU);
+				gsm.setMultiPlayer(false);
+				gsm.setPlayers(1);
 		}
 			
 	}
