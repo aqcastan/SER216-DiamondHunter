@@ -72,8 +72,13 @@ public class Hud {
 		int minutes = (int) (player.getTicks() / 1800);
 		int seconds = (int) ((player.getTicks() / 30) % 60);
 		if(minutes < 10) {
-			if(seconds < 10) Content.drawString(g, "0" + minutes + ":0" + seconds, 85, 3);
-			else Content.drawString(g, "0" + minutes + ":" + seconds, 85, 3);
+			if(seconds < 10) {
+				Content.drawString(g, "0" + minutes + ":0" + seconds, 85, 3);
+			}
+			else  {
+				Content.drawString(g, "0" + minutes + ":" + seconds, 85, 3);
+			}
+			Content.drawString(g, "Player " + player.getId(), 0, 3);
 		}
 		else {
 			if(seconds < 10) Content.drawString(g, minutes + ":0" + seconds, 85, 3);

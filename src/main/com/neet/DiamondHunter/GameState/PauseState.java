@@ -46,6 +46,8 @@ public class PauseState extends GameState {
 		if(Keys.isPressed(Keys.F1)) {
 			gsm.setPaused(false);
 			gsm.setState(GameStateManager.MENU);
+			gsm.setMultiPlayer(false);
+            gsm.setPlayers(1);
 		}
 	}
 	
