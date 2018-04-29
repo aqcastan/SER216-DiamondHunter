@@ -26,6 +26,7 @@ public class MenuState extends GameState {
 	}
 	
 	public void init() {
+		gsm.setLevel(1);
 		bg = Content.MENUBG[0][0];
 		diamond = Content.DIAMOND[0][0];
 		JukeBox.load("/SFX/collect.wav", "collect");
@@ -71,7 +72,5 @@ public class MenuState extends GameState {
 			System.exit(0);
 		}
 	}
-	
-	public int getCurrentOption() {return currentOption;}
 	
 }
