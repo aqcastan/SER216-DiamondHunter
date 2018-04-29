@@ -2,7 +2,7 @@
 // and a 2d array of the map.
 // Each index in the map corresponds to a specific tile.
 
-package com.neet.DiamondHunter.TileMap;
+package main.com.neet.DiamondHunter.TileMap;
 
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
@@ -12,7 +12,7 @@ import java.io.InputStreamReader;
 
 import javax.imageio.ImageIO;
 
-import com.neet.DiamondHunter.Main.GamePanel;
+import main.com.neet.DiamondHunter.Main.GamePanel;
 
 public class TileMap {
 	

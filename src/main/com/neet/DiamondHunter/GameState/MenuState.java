@@ -1,14 +1,14 @@
 // The main menu GameState.
 
-package com.neet.DiamondHunter.GameState;
+package main.com.neet.DiamondHunter.GameState;
 
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
-import com.neet.DiamondHunter.Manager.Content;
-import com.neet.DiamondHunter.Manager.GameStateManager;
-import com.neet.DiamondHunter.Manager.JukeBox;
-import com.neet.DiamondHunter.Manager.Keys;
+import main.com.neet.DiamondHunter.Manager.Content;
+import main.com.neet.DiamondHunter.Manager.GameStateManager;
+import main.com.neet.DiamondHunter.Manager.JukeBox;
+import main.com.neet.DiamondHunter.Manager.Keys;
 
 public class MenuState extends GameState {
 	

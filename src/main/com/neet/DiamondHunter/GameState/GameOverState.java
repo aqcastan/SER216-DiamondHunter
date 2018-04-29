@@ -101,6 +101,7 @@ public class GameOverState extends GameState {
 		}
 
 		if(Keys.isPressed(Keys.ENTER) && currentOption < options.length) {
+		    System.out.println("Going to level 2");
 			gsm.setLevel(2);
 			gsm.setState(GameStateManager.PLAY);
 			JukeBox.play("collect");
