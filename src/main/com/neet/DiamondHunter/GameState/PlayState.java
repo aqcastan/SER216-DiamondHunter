@@ -25,7 +25,7 @@ public class PlayState extends GameState {
 	
 	// player
 	public static Player player;
-	private int playerNum;
+	private int playerNum = 1;
 	
 	// tilemap
 	private TileMap tileMap;
