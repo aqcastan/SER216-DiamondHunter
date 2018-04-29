@@ -78,10 +78,6 @@ public class GameStateManager {
 			System.out.println("bleh");
 		}
 		else if(i == PLAY) {
-<<<<<<< HEAD
-		    PlayState state = new PlayState(this);
-			gameStates[i] = state;
-=======
 			if (isMultiPlayer()) {
 				playState = new PlayState(this, true);
 			}
@@ -89,9 +85,7 @@ public class GameStateManager {
 				playState = new PlayState(this, false);
 			}
 			gameStates[i] = playState;
->>>>>>> Mitchell
 			gameStates[i].init();
-			player = state.getPlayer();
 		}
 		else if(i == GAMEOVER) {
 			if (isMultiPlayer()) {
