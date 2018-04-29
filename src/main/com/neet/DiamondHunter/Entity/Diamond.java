@@ -27,7 +27,7 @@ public class Diamond extends Entity {
 		cwidth = 12;
 		cheight = 12;
 		
-		sprites = Content.DIAMOND[0];
+		sprites = Content.getDIAMOND()[0];
 		animation.setFrames(sprites);
 		animation.setDelay(10);
 		

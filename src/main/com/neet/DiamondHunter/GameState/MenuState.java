@@ -26,8 +26,8 @@ public class MenuState extends GameState {
 	}
 	
 	public void init() {
-		bg = Content.MENUBG[0][0];
-		diamond = Content.DIAMOND[0][0];
+		bg = Content.getMENUBG()[0][0];
+		diamond = Content.getDIAMOND()[0][0];
 		JukeBox.load("/SFX/collect.wav", "collect");
 		JukeBox.load("/SFX/menuoption.wav", "menuoption");
 	}
