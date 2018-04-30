@@ -65,8 +65,11 @@ public class GameStateManager {
 			gameStates[i].init();
 		}
 		else if(i == MENU) {
-			gameStates[i] = new MenuState(this);
-			gameStates[i].init();
+		    menuState = new MenuState(this);
+            gameStates[i] = menuState;
+            gameStates[i].init();
+            menuState = (MenuState) gameStates[i];
+            System.out.println("bleh");
 		}
 		else if(i == PLAY) {
 		    PlayState state = new PlayState(this);
