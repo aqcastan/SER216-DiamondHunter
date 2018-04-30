@@ -15,7 +15,7 @@ public class BitMapTest {
 		TileMap testMngr = new TileMap(16);
 		testMngr.loadTiles("/Tilesets/testtileset.gif");
 		testMngr.loadMap("/Maps/testmap.map");
-		Player testPlayer = new Player(testMngr);
+		Player testPlayer = new Player(testMngr,0);
 		testPlayer.setPosition(0, 0);
 		
 		System.out.print("Start of top row: ");

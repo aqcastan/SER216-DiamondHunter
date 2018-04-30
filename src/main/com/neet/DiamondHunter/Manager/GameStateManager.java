@@ -8,6 +8,7 @@ package main.com.neet.DiamondHunter.Manager;
 
 import java.awt.Graphics2D;
 
+import main.com.neet.DiamondHunter.Entity.Player;
 import main.com.neet.DiamondHunter.GameState.GameOverState;
 import main.com.neet.DiamondHunter.GameState.GameState;
 import main.com.neet.DiamondHunter.GameState.IntroState;
@@ -20,20 +21,37 @@ public class GameStateManager {
 	
 	private boolean paused;
 	private PauseState pauseState;
+	private Player player;
+    private MenuState menuState;
 	
+	public static PlayState playState;
 	private GameState[] gameStates;
 	private int currentState;
 	private int previousState;
+	private static int players = 1;
+	private boolean multiPlayer = false;
+	private long[] ticks = new long[2];
+
+	public boolean isMultiPlayer() {
+		return multiPlayer;
+	}
+	public void setMultiPlayer(boolean multiPlayer) {
+		this.multiPlayer = multiPlayer;
+	}
+	private int levelState;
 	
 	public static final int NUM_STATES = 4;
 	public static final int INTRO = 0;
 	public static final int MENU = 1;
 	public static final int PLAY = 2;
 	public static final int GAMEOVER = 3;
+	private static int LEVEL;
+	
 	
 	public GameStateManager() {
 		
 		JukeBox.init();
+		
 		
 		paused = false;
 		pauseState = new PauseState(this);
@@ -41,6 +59,18 @@ public class GameStateManager {
 		gameStates = new GameState[NUM_STATES];
 		setState(INTRO);
 		
+	}
+	public int getPlayers() {
+		return players;
+	}
+	public void setPlayers(int num) {
+		this.players = num;
+	}
+	public void setLevel(int i) {
+			LEVEL = i;
+	}
+	public int getLevel() {
+		return LEVEL;
 	}
 	
 	public void setState(int i) {
@@ -52,17 +82,46 @@ public class GameStateManager {
 			gameStates[i].init();
 		}
 		else if(i == MENU) {
-			gameStates[i] = new MenuState(this);
-			gameStates[i].init();
+		    menuState = new MenuState(this);
+            gameStates[i] = menuState;
+            gameStates[i].init();
+            menuState = (MenuState) gameStates[i];
+            System.out.println("bleh");
 		}
 		else if(i == PLAY) {
-			gameStates[i] = new PlayState(this);
+			if (isMultiPlayer()) {
+				playState = new PlayState(this, true);
+			}
+			else { 
+				playState = new PlayState(this, false);
+			}
+			gameStates[i] = playState;
+			gameStates[i] = new PlayState(this, false);
 			gameStates[i].init();
+            player = playState.getPlayer();
 		}
 		else if(i == GAMEOVER) {
-			gameStates[i] = new GameOverState(this);
-			gameStates[i].init();
+			if (isMultiPlayer()) {
+				if (players == 1) {
+					players++;
+					ticks[0] = Data.getTime();
+					gameStates[i] = new PlayState(this, true);
+					gameStates[i].init();
+				}
+				else {
+					ticks[1] = Data.getTime();
+					gameStates[i] = new GameOverState(this, ticks);
+					gameStates[i].init();
+				}
+			}
+			else {
+				gameStates[i] = new GameOverState(this);
+				gameStates[i].init();
+			}
 		}
+	}
+	public GameState getState() {
+		return gameStates[currentState];
 	}
 	
 	public void unloadState(int i) {
@@ -81,7 +140,6 @@ public class GameStateManager {
 			gameStates[currentState].update();
 		}
 	}
-	
 	public void draw(Graphics2D g) {
 		if(paused) {
 			pauseState.draw(g);
@@ -91,4 +149,8 @@ public class GameStateManager {
 		}
 	}
 	
+	public int getCurrentState() {return currentState;}
+	public Player getPlayer() {return player;}
+	public boolean getPaused() {return paused;}
+	public MenuState getMenuState() {return menuState;}
 }

@@ -34,6 +34,15 @@ public class Item extends Entity{
 			sprite = Content.getITEMS()[1][1];
 		}
 	}
+	public int getType() {
+		if(type == BOAT) {
+			return BOAT;
+		}
+		else if(type == AXE) {
+			return AXE;
+		}
+		else return 2;
+	}
 	
 	public void collected(Player p) {
 		if(type == BOAT) {
