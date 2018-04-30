@@ -46,6 +46,8 @@ public class test_3_5 {
             System.out.println("In Main Menu");
             robot.keyPress(KeyEvent.VK_ENTER);
             robot.keyRelease(KeyEvent.VK_ENTER);
+            robot.keyPress(KeyEvent.VK_ENTER);
+            robot.keyRelease(KeyEvent.VK_ENTER);
             System.out.println("Started game");
             
             try {
