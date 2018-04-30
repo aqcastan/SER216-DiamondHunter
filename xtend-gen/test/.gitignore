@@ -10,3 +10,5 @@
 /.GamePanelFeatureBackground.java._trace
 /.GamePanelFeatureLaunchingDiamondHunter.java._trace
 /.GamePanelFeatureLaunchingTheGame.java._trace
+/TileLoadFeature.java
+/TileLoadFeatureLoadingTheMap.java
