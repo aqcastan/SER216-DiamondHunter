@@ -11,17 +11,17 @@ import javax.imageio.ImageIO;
 
 public class Content {
 	
-	public static BufferedImage[][] MENUBG = load("/HUD/menuscreen.gif", 128, 144);
-	public static BufferedImage[][] BAR = load("/HUD/bar.gif", 128, 16);
+	private static BufferedImage[][] MENUBG = load("/HUD/menuscreen.gif", 128, 144);
+	private static BufferedImage[][] BAR = load("/HUD/bar.gif", 128, 16);
 	
-	public static BufferedImage[][] PLAYER = load("/Sprites/playersprites.gif", 16, 16);
-	public static BufferedImage[][] DIAMOND = load("/Sprites/diamond.gif", 16, 16);
-	public static BufferedImage[][] SPARKLE = load("/Sprites/sparkle.gif", 16, 16);
-	public static BufferedImage[][] ITEMS = load("/Sprites/items.gif", 16, 16);
+	private static BufferedImage[][] PLAYER = load("/Sprites/playersprites.gif", 16, 16);
+	private static BufferedImage[][] DIAMOND = load("/Sprites/diamond.gif", 16, 16);
+	private static BufferedImage[][] SPARKLE = load("/Sprites/sparkle.gif", 16, 16);
+	private static BufferedImage[][] ITEMS = load("/Sprites/items.gif", 16, 16);
 	
-	public static BufferedImage[][] font = load("/HUD/font.gif", 8, 8);
+	private static BufferedImage[][] font = load("/HUD/font.gif", 8, 8);
 	
-	public static BufferedImage[][] load(String s, int w, int h) {
+	private static BufferedImage[][] load(String s, int w, int h) {
 		BufferedImage[][] ret;
 		try {
 			BufferedImage spritesheet = ImageIO.read(Content.class.getResourceAsStream(s));
@@ -56,6 +56,78 @@ public class Content {
 			int col = c % font[0].length;
 			g.drawImage(font[row][col], x + 8 * i, y, null);
 		}
+	}
+
+	public static BufferedImage[][] getMENUBG() {
+		return MENUBG;
+	}
+
+	public static void setMENUBG(BufferedImage[][] mENUBG) {
+		MENUBG = mENUBG;
+	}
+	
+	public static void setMENUBGVal(int i, int j, BufferedImage val) {
+		MENUBG[i][j] = val;
+	}
+
+	public static BufferedImage[][] getBAR() {
+		return BAR;
+	}
+
+	public static void setBAR(BufferedImage[][] bAR) {
+		BAR = bAR;
+	}
+	
+	public static void setBARVal(int i, int j, BufferedImage val) {
+		BAR[i][j] = val;
+	}
+
+	public static BufferedImage[][] getPLAYER() {
+		return PLAYER;
+	}
+
+	public static void setPLAYER(BufferedImage[][] pLAYER) {
+		PLAYER = pLAYER;
+	}
+	
+	public static void setPLAYERVal(int i, int j, BufferedImage val) {
+		PLAYER[i][j] = val;
+	}
+
+	public static BufferedImage[][] getDIAMOND() {
+		return DIAMOND;
+	}
+
+	public static void setDIAMOND(BufferedImage[][] dIAMOND) {
+		DIAMOND = dIAMOND;
+	}
+	
+	public static void setDIAMONDVal(int i, int j, BufferedImage val) {
+		DIAMOND[i][j] = val;
+	}
+
+	public static BufferedImage[][] getSPARKLE() {
+		return SPARKLE;
+	}
+
+	public static void setSPARKLE(BufferedImage[][] sPARKLE) {
+		SPARKLE = sPARKLE;
+	}
+	
+	public static void setSPARKLEVal(int i, int j, BufferedImage val) {
+		SPARKLE[i][j] = val;
+	}
+
+	public static BufferedImage[][] getITEMS() {
+		return ITEMS;
+	}
+
+	public static void setITEMS(BufferedImage[][] iTEMS) {
+		ITEMS = iTEMS;
+	}
+	
+	public static void setITEMSVal(int i, int j, BufferedImage val) {
+		ITEMS[i][j] = val;
 	}
 	
 }

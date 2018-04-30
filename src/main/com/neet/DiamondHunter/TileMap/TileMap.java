@@ -9,6 +9,8 @@ import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.Reader;
+import java.util.Scanner;
 
 import javax.imageio.ImageIO;
 
@@ -97,12 +99,10 @@ public class TileMap {
 		try {
 			
 			InputStream in = getClass().getResourceAsStream(s);
-			BufferedReader br = new BufferedReader(
-						new InputStreamReader(in)
-					);
+			Scanner br = new Scanner(in);
 			
-			numCols = Integer.parseInt(br.readLine());
-			numRows = Integer.parseInt(br.readLine());
+			numCols = Integer.parseInt(br.nextLine());
+			numRows = Integer.parseInt(br.nextLine());
 			map = new int[numRows][numCols];
 			width = numCols * tileSize;
 			height = numRows * tileSize;
@@ -116,7 +116,7 @@ public class TileMap {
 			
 			String delims = "\\s+";
 			for(int row = 0; row < numRows; row++) {
-				String line = br.readLine();
+				String line = br.nextLine();
 				String[] tokens = line.split(delims);
 				for(int col = 0; col < numCols; col++) {
 					map[row][col] = Integer.parseInt(tokens[col]);

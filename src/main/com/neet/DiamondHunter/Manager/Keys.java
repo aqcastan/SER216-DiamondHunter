@@ -19,14 +19,14 @@ public class Keys {
 	public static boolean keyState[] = new boolean[NUM_KEYS];
 	public static boolean prevKeyState[] = new boolean[NUM_KEYS];
 	
-	public static int UP = 0;
-	public static int LEFT = 1;
-	public static int DOWN = 2;
-	public static int RIGHT = 3;
-	public static int SPACE = 4;
-	public static int ENTER = 5;
-	public static int ESCAPE = 6;
-	public static int F1 = 7;
+	public final static int UP = 0;
+	public final static int LEFT = 1;
+	public final static int DOWN = 2;
+	public final static int RIGHT = 3;
+	public final static int SPACE = 4;
+	public final static int ENTER = 5;
+	public final static int ESCAPE = 6;
+	public final static int F1 = 7;
 	
 	
 	public static void keySet(int i, boolean b) {

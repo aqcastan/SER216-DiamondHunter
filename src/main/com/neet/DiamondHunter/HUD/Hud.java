@@ -37,10 +37,10 @@ public class Hud {
 		numDiamonds = d.size();
 		yoffset = GamePanel.HEIGHT;
 		
-		bar = Content.BAR[0][0];
-		diamond = Content.DIAMOND[0][0];
-		boat = Content.ITEMS[0][0];
-		axe = Content.ITEMS[0][1];
+		bar = Content.getBAR()[0][0];
+		diamond = Content.getDIAMOND()[0][0];
+		boat = Content.getITEMS()[0][0];
+		axe = Content.getITEMS()[0][1];
 		
 		font = new Font("Arial", Font.PLAIN, 10);
 		textColor = new Color(47, 64, 126);
