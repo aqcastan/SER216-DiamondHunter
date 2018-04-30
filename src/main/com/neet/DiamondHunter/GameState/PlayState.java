@@ -24,7 +24,8 @@ import main.com.neet.DiamondHunter.TileMap.TileMap;
 public class PlayState extends GameState {
 	
 	// player
-	private Player player;
+	public static Player player;
+	private int playerNum = 1;
 	
 	// tilemap
 	private TileMap tileMap;
@@ -35,6 +36,14 @@ public class PlayState extends GameState {
 	// items
 	private ArrayList<Item> items;
 	
+	public int getDiamonds() {
+		return diamonds.size();
+	}
+
+	public ArrayList<Item> getItems() {
+		return items;
+	}
+
 	// sparkles
 	private ArrayList<Sparkle> sparkles;
 	
@@ -51,140 +60,262 @@ public class PlayState extends GameState {
 	private boolean eventStart;
 	private boolean eventFinish;
 	private int eventTick;
-	
+	private boolean multimode = false;
 	// transition box
 	private ArrayList<Rectangle> boxes;
 	
-	public PlayState(GameStateManager gsm) {
+	public PlayState(GameStateManager gsm, boolean multimode) {
 		super(gsm);
+		if (multimode == true) {
+			this.multimode = true;
+			playerNum = gsm.getPlayers();
+		}
 	}
 	
-	public void init() {
-		
-		// create lists
-		diamonds = new ArrayList<Diamond>();
-		sparkles = new ArrayList<Sparkle>();
-		items = new ArrayList<Item>();
-		
-		// load map
-		tileMap = new TileMap(16);
-		tileMap.loadTiles("/Tilesets/testtileset.gif");
-		tileMap.loadMap("/Maps/testmap.map");
-		
-		// create player
-		player = new Player(tileMap);
-		
-		// fill lists
-		populateDiamonds();
-		populateItems();
-		
-		// initialize player
-		player.setTilePosition(17, 17);
-		player.setTotalDiamonds(diamonds.size());
-		
-		// set up camera position
-		sectorSize = GamePanel.WIDTH;
-		xsector = player.getx() / sectorSize;
-		ysector = player.gety() / sectorSize;
-		tileMap.setPositionImmediately(-xsector * sectorSize, -ysector * sectorSize);
-		
-		// load hud
-		hud = new Hud(player, diamonds);
-		
-		// load music
-		JukeBox.load("/Music/bgmusic.mp3", "music1");
-		JukeBox.setVolume("music1", -10);
-		JukeBox.loop("music1", 1000, 1000, JukeBox.getFrames("music1") - 1000);
-		JukeBox.load("/Music/finish.mp3", "finish");
-		JukeBox.setVolume("finish", -10);
-		
-		// load sfx
-		JukeBox.load("/SFX/collect.wav", "collect");
-		JukeBox.load("/SFX/mapmove.wav", "mapmove");
-		JukeBox.load("/SFX/tilechange.wav", "tilechange");
-		JukeBox.load("/SFX/splash.wav", "splash");
-		
-		// start event
-		boxes = new ArrayList<Rectangle>();
-		eventStart = true;
-		eventStart();
-			
-	}
+	public Player getPlayer() {return player;}
 	
-	private void populateDiamonds() {
-		
-		Diamond d;
-		
-		d = new Diamond(tileMap);
-		d.setTilePosition(20, 20);
-		d.addChange(new int[] { 23, 19, 1 });
-		d.addChange(new int[] { 23, 20, 1 });
-		diamonds.add(d);
-		d = new Diamond(tileMap);
-		d.setTilePosition(12, 36);
-		d.addChange(new int[] { 31, 17, 1 });
-		diamonds.add(d);
-		d = new Diamond(tileMap);
-		d.setTilePosition(28, 4);
-		d.addChange(new int[] {27, 7, 1});
-		d.addChange(new int[] {28, 7, 1});
-		diamonds.add(d);
-		d = new Diamond(tileMap);
-		d.setTilePosition(4, 34);
-		d.addChange(new int[] { 31, 21, 1 });
-		diamonds.add(d);
-		
-		d = new Diamond(tileMap);
-		d.setTilePosition(28, 19);
-		diamonds.add(d);
-		d = new Diamond(tileMap);
-		d.setTilePosition(35, 26);
-		diamonds.add(d);
-		d = new Diamond(tileMap);
-		d.setTilePosition(38, 36);
-		diamonds.add(d);
-		d = new Diamond(tileMap);
-		d.setTilePosition(27, 28);
-		diamonds.add(d);
-		d = new Diamond(tileMap);
-		d.setTilePosition(20, 30);
-		diamonds.add(d);
-		d = new Diamond(tileMap);
-		d.setTilePosition(14, 25);
-		diamonds.add(d);
-		d = new Diamond(tileMap);
-		d.setTilePosition(4, 21);
-		diamonds.add(d);
-		d = new Diamond(tileMap);
-		d.setTilePosition(9, 14);
-		diamonds.add(d);
-		d = new Diamond(tileMap);
-		d.setTilePosition(4, 3);
-		diamonds.add(d);
-		d = new Diamond(tileMap);
-		d.setTilePosition(20, 14);
-		diamonds.add(d);
-		d = new Diamond(tileMap);
-		d.setTilePosition(13, 20);
-		diamonds.add(d);
-		
-	}
-	
-	private void populateItems() {
-		
-		Item item;
-		
-		item = new Item(tileMap);
-		item.setType(Item.AXE);
-		item.setTilePosition(26, 37);
-		items.add(item);
-		
-		item = new Item(tileMap);
-		item.setType(Item.BOAT);
-		item.setTilePosition(12, 4);
-		items.add(item);
-		
-	}
+    public void init() {
+
+        if(gsm.getLevel() == 1) {
+         // create lists
+        diamonds = new ArrayList<Diamond>();
+        sparkles = new ArrayList<Sparkle>();
+        items = new ArrayList<Item>();
+        // load map
+        tileMap = new TileMap(16);
+        tileMap.loadTiles("/Tilesets/testtileset.gif");
+        tileMap.loadMap("/Maps/testmap.map");
+        
+        // create player
+        player = new Player(tileMap, playerNum);
+        
+        // fill lists
+        populateDiamonds1();
+        populateItemsLevel1();
+        
+        // initialize player
+        player.setTilePosition(17, 17);
+        player.setTotalDiamonds(diamonds.size());
+        
+        // set up camera position
+        sectorSize = GamePanel.WIDTH;
+        xsector = player.getx()/ sectorSize;
+        ysector = player.gety()/ sectorSize;
+        tileMap.setPositionImmediately(-xsector * sectorSize, -ysector * sectorSize);
+        
+        // load hud
+        hud = new Hud(player, diamonds);
+        
+        // load music
+        JukeBox.load("/Music/bgmusic.mp3", "music1");
+        JukeBox.setVolume("music1", -10);
+        JukeBox.loop("music1", 1000, 1000, JukeBox.getFrames("music1") - 1000);
+        JukeBox.load("/Music/finish.mp3", "finish");
+        JukeBox.setVolume("finish", -10);
+        
+        // load sfx
+        JukeBox.load("/SFX/collect.wav", "collect");
+        JukeBox.load("/SFX/mapmove.wav", "mapmove");
+        JukeBox.load("/SFX/tilechange.wav", "tilechange");
+        JukeBox.load("/SFX/splash.wav", "splash");
+        
+        // start event
+        boxes = new ArrayList<Rectangle>();
+        eventStart = true;
+        eventStart();
+        }
+        else if(gsm.getLevel() == 2) {
+            diamonds = new ArrayList<Diamond>();
+            sparkles = new ArrayList<Sparkle>();
+            items = new ArrayList<Item>();
+            // load map
+            tileMap = new TileMap(16);
+            tileMap.loadTiles("/Tilesets/testtileset.gif");
+            tileMap.loadMap("/Maps/testmap2.map");
+            
+            // create player
+            player = new Player(tileMap, playerNum);
+            
+            // fill lists
+            populateDiamonds2();
+            populateItemsLevel2();
+            
+            // initialize player
+            player.setTilePosition(1, 1);
+            player.setTotalDiamonds(diamonds.size());
+            
+            // set up camera position
+            sectorSize = GamePanel.WIDTH;
+            xsector = player.getx() / sectorSize;
+            ysector = player.gety()/ sectorSize;
+            tileMap.setPositionImmediately(-xsector* sectorSize, -ysector* sectorSize);
+            
+            // load hud
+            hud = new Hud(player, diamonds);
+            
+            // load music
+            JukeBox.load("/Music/bgmusic.mp3", "music1");
+            JukeBox.setVolume("music1", -10);
+            JukeBox.loop("music1", 1000, 1000, JukeBox.getFrames("music1") - 1000);
+            JukeBox.load("/Music/finish.mp3", "finish");
+            JukeBox.setVolume("finish", -10);
+            
+            // load sfx
+            JukeBox.load("/SFX/collect.wav", "collect");
+            JukeBox.load("/SFX/mapmove.wav", "mapmove");
+            JukeBox.load("/SFX/tilechange.wav", "tilechange");
+            JukeBox.load("/SFX/splash.wav", "splash");
+            
+            // start event
+            boxes = new ArrayList<Rectangle>();
+            eventStart = true;
+            eventStart();
+        }
+            
+    }
+    
+    private void populateDiamonds1() {
+        
+        Diamond d;
+        
+        d = new Diamond(tileMap);
+        d.setTilePosition(20, 20);
+        d.addChange(new int[] { 23, 19, 1 });
+        d.addChange(new int[] { 23, 20, 1 });
+    
+        diamonds.add(d);
+        d = new Diamond(tileMap);
+        d.setTilePosition(12, 36);
+        d.addChange(new int[] { 31, 17, 1 });
+        diamonds.add(d);
+        d = new Diamond(tileMap);
+        d.setTilePosition(28, 4);
+        d.addChange(new int[] {27, 7, 1});
+        d.addChange(new int[] {28, 7, 1});
+        diamonds.add(d);
+        d = new Diamond(tileMap);
+        d.setTilePosition(4, 34);
+        d.addChange(new int[] { 31, 21, 1 });
+        diamonds.add(d);
+        
+        d = new Diamond(tileMap);
+        d.setTilePosition(28, 19);
+        diamonds.add(d);
+        d = new Diamond(tileMap);
+        d.setTilePosition(35, 26);
+        diamonds.add(d);
+        d = new Diamond(tileMap);
+        d.setTilePosition(38, 36);
+        diamonds.add(d);
+        d = new Diamond(tileMap);
+        d.setTilePosition(27, 28);
+        diamonds.add(d);
+        d = new Diamond(tileMap);
+        d.setTilePosition(20, 30);
+        diamonds.add(d);
+        d = new Diamond(tileMap);
+        d.setTilePosition(14, 25);
+        diamonds.add(d);
+        d = new Diamond(tileMap);
+        d.setTilePosition(4, 21);
+        diamonds.add(d);
+        d = new Diamond(tileMap);
+        d.setTilePosition(9, 14);
+        diamonds.add(d);
+        d = new Diamond(tileMap);
+        d.setTilePosition(4, 3);
+        diamonds.add(d);
+        d = new Diamond(tileMap);
+        d.setTilePosition(20, 14);
+        diamonds.add(d);
+        d = new Diamond(tileMap);
+        d.setTilePosition(13, 20);
+        diamonds.add(d);
+        
+        
+    }
+    private void populateDiamonds2() {
+        Diamond d;
+        
+        d = new Diamond(tileMap);
+        d.setTilePosition(2, 3);
+        diamonds.add(d);
+        
+        d = new Diamond(tileMap);
+        d.setTilePosition(7, 8);
+        diamonds.add(d);
+        
+        d = new Diamond(tileMap);
+        d.setTilePosition(1, 12);
+        diamonds.add(d);
+        
+        d = new Diamond(tileMap);
+        d.setTilePosition(5, 18);
+        diamonds.add(d);
+        
+        d = new Diamond(tileMap);
+        d.setTilePosition(6, 24);
+        diamonds.add(d);
+        d = new Diamond(tileMap);
+        d.setTilePosition(1, 28);
+        diamonds.add(d);
+        d = new Diamond(tileMap);
+        d.setTilePosition(6, 34);
+        diamonds.add(d);
+        d = new Diamond(tileMap);
+        d.setTilePosition(8, 33);
+        diamonds.add(d);
+        d = new Diamond(tileMap);
+        d.setTilePosition(38, 38);
+        diamonds.add(d);
+        d = new Diamond(tileMap);
+        d.setTilePosition(37, 25);
+        diamonds.add(d);
+        d = new Diamond(tileMap);
+        d.setTilePosition(26, 20);
+        diamonds.add(d);
+        d = new Diamond(tileMap);
+        d.setTilePosition(22, 16);
+        diamonds.add(d);
+        d = new Diamond(tileMap);
+        d.setTilePosition(30, 8);
+        diamonds.add(d);
+        d = new Diamond(tileMap);
+        d.setTilePosition(26, 2);
+        diamonds.add(d);
+        d = new Diamond(tileMap);
+        d.setTilePosition(5, 18);
+        diamonds.add(d);
+        
+    }
+    
+    private void populateItemsLevel1() {
+        
+        Item item;
+        
+        item = new Item(tileMap);
+        item.setType(Item.AXE);
+        item.setTilePosition(26, 37);
+        items.add(item);
+        
+        item = new Item(tileMap);
+        item.setType(Item.BOAT);
+        item.setTilePosition(12, 4);
+        items.add(item);
+        
+    }
+    private void populateItemsLevel2() {
+        Item item;
+        item = new Item(tileMap);
+        item.setType(Item.BOAT);
+        item.setTilePosition(3,3);
+        items.add(item);
+        
+        item = new Item(tileMap);
+        item.setType(Item.AXE);
+        item.setTilePosition(28, 15);
+        items.add(item);
+    }
 	
 	public void update() {
 		
@@ -204,7 +335,15 @@ public class PlayState extends GameState {
 		int oldys = ysector;
 		xsector = player.getx() / sectorSize;
 		ysector = player.gety() / sectorSize;
-		tileMap.setPosition(-xsector * sectorSize, -ysector * sectorSize);
+		double playerX = player.getx()/128.0;
+		double playerY = player.gety()/128.0;
+		if (player.getx() >= 576) playerX = (tileMap.getWidth() - 64)/128.0;
+		else if (player.getx() <= 64) playerX = 64/128.0;
+		if (player.gety() >= 576) playerY = (tileMap.getHeight() - 64)/128.0;
+		else if (player.gety() <= 64) playerY = 64/128.0;
+		//tileMap.setPosition(-xsector * sectorSize, -ysector * sectorSize);  //Old camera control
+		//Keeps player centered on camera
+		tileMap.setPosition(-((int)(playerX * sectorSize - 64)), -((int)(playerY * sectorSize - 64)));
 		tileMap.update();
 		
 		if(oldxs != xsector || oldys != ysector) {

@@ -28,6 +28,7 @@ public class Keys {
 	public final static int ESCAPE = 6;
 	public final static int F1 = 7;
 	
+	
 	public static void keySet(int i, boolean b) {
 		if(i == KeyEvent.VK_UP) keyState[UP] = b;
 		else if(i == KeyEvent.VK_LEFT) keyState[LEFT] = b;
