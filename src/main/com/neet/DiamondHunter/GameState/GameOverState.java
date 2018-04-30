@@ -53,7 +53,7 @@ public class GameOverState extends GameState {
 			color = new Color(164, 198, 222);
 		}
 		//bg = Content.MENUBG[0][0];
-		diamond = Content.DIAMOND[0][0];
+		diamond = Content.getDIAMOND()[0][0];
 		color = new Color(164, 198, 222);
 		ticks = Data.getTime();
 		if(ticks < 3600) rank = 1;
