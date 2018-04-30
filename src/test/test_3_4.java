@@ -41,7 +41,7 @@ public class test_3_4 {
     public void MainMenuTest() {
         try {
             System.out.println("Launched game");
-            Thread.sleep(7000);
+            Thread.sleep(10000);
             System.out.println("In Main Menu");
             
             try {
