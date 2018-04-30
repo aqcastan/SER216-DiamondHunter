@@ -507,6 +507,5 @@ public class PlayState extends GameState {
                 gsm.setState(GameStateManager.GAMEOVER);
             }
         }
-    }
-    
+    }    
 }

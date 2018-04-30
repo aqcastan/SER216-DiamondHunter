@@ -51,6 +51,8 @@ public class test_3_7 {
             System.out.println("In Main Menu");
             robot.keyPress(KeyEvent.VK_ENTER);
             robot.keyRelease(KeyEvent.VK_ENTER);
+            robot.keyPress(KeyEvent.VK_ENTER);
+            robot.keyRelease(KeyEvent.VK_ENTER);
             System.out.println("Started game");
             long start = System.nanoTime();
             Thread.sleep(2000);
