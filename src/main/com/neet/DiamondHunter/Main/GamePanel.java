@@ -128,4 +128,6 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
 		Keys.keySet(key.getKeyCode(), false);
 	}
 	
+	public GameStateManager getGameStateManager() {return gsm;}
+	
 }

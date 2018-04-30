@@ -8,6 +8,7 @@ package main.com.neet.DiamondHunter.Manager;
 
 import java.awt.Graphics2D;
 
+import main.com.neet.DiamondHunter.Entity.Player;
 import main.com.neet.DiamondHunter.GameState.GameOverState;
 import main.com.neet.DiamondHunter.GameState.GameState;
 import main.com.neet.DiamondHunter.GameState.IntroState;
@@ -20,6 +21,8 @@ public class GameStateManager {
 	
 	private boolean paused;
 	private PauseState pauseState;
+	private Player player;
+    private MenuState menuState;
 	
 	public static PlayState playState;
 	private GameState[] gameStates;
@@ -79,8 +82,11 @@ public class GameStateManager {
 			gameStates[i].init();
 		}
 		else if(i == MENU) {
-			gameStates[i] = new MenuState(this);
-			gameStates[i].init();
+		    menuState = new MenuState(this);
+            gameStates[i] = menuState;
+            gameStates[i].init();
+            menuState = (MenuState) gameStates[i];
+            System.out.println("bleh");
 		}
 		else if(i == PLAY) {
 			if (isMultiPlayer()) {
@@ -92,6 +98,7 @@ public class GameStateManager {
 			gameStates[i] = playState;
 			gameStates[i] = new PlayState(this, false);
 			gameStates[i].init();
+            player = playState.getPlayer();
 		}
 		else if(i == GAMEOVER) {
 			if (isMultiPlayer()) {
@@ -142,4 +149,8 @@ public class GameStateManager {
 		}
 	}
 	
+	public int getCurrentState() {return currentState;}
+	public Player getPlayer() {return player;}
+	public boolean getPaused() {return paused;}
+	public MenuState getMenuState() {return menuState;}
 }
