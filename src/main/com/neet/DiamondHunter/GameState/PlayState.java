@@ -346,10 +346,6 @@ public class PlayState extends GameState {
         tileMap.setPosition(-((int)(playerX * sectorSize - 64)), -((int)(playerY * sectorSize - 64)));
         tileMap.update();
         
-        if(oldxs != xsector || oldys != ysector) {
-            JukeBox.play("mapmove");
-        }
-        
         if(tileMap.isMoving()) return;
         
         // update player
