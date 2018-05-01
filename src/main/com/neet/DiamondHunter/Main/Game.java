@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 
 public class Game {
 	
-    private static GamePanel gp = null;
+    public static GamePanel gp = null;
     static JFrame window;
     
 	public static void main(String[] args) {
@@ -16,7 +16,7 @@ public class Game {
 		window = new JFrame("Diamond Hunter");
 		
 		gp = new GamePanel();
-		
+
 		window.add(gp);
 		
 		window.setResizable(false);

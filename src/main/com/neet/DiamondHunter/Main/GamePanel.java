@@ -39,7 +39,7 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
 	private Graphics2D g;
 	
 	// game state manager
-	private GameStateManager gsm;
+	public GameStateManager gsm;
 	
 	// constructor
 	public GamePanel() {
@@ -47,8 +47,6 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
 		setFocusable(true);
 		requestFocus();
 	}
-	
-	public GameStateManager getGameStateManager() {return gsm;}
 	
 	// ready to display
 	public void addNotify() {
@@ -100,6 +98,7 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
 		image = new BufferedImage(WIDTH, HEIGHT2, 1);
 		g = (Graphics2D) image.getGraphics();
 		gsm = new GameStateManager();
+		gsm.setLevel(1);
 	}
 	
 	// updates game
@@ -128,5 +127,7 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
 	public void keyReleased(KeyEvent key) {
 		Keys.keySet(key.getKeyCode(), false);
 	}
+	
+	public GameStateManager getGameStateManager() {return gsm;}
 	
 }
