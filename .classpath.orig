@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="src" path="Resources"/>
+<<<<<<< HEAD
+=======
 	<classpathentry kind="con" path="org.jnario.JNARIO_CONTAINER"/>
+	<classpathentry kind="src" path="xtend-gen"/>
+>>>>>>> e5508ffeca444b705e3dcac8061fad124e581a50
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="Libs/jl1.0.1.jar"/>
 	<classpathentry kind="lib" path="Libs/mp3spi1.9.5.jar"/>
 	<classpathentry kind="lib" path="Libs/tritonus_share.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 <<<<<<< HEAD
-	<classpathentry kind="lib" path="Resources"/>
 =======
->>>>>>> JJ_Fix_Final
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="Resources"/>
+>>>>>>> e5508ffeca444b705e3dcac8061fad124e581a50
 	<classpathentry kind="output" path="bin"/>
 </classpath>

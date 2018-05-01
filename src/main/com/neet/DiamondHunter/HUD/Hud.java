@@ -37,10 +37,10 @@ public class Hud {
 		numDiamonds = d.size();
 		yoffset = GamePanel.HEIGHT;
 		
-		bar = Content.BAR[0][0];
-		diamond = Content.DIAMOND[0][0];
-		boat = Content.ITEMS[0][0];
-		axe = Content.ITEMS[0][1];
+		bar = Content.getBAR()[0][0];
+		diamond = Content.getDIAMOND()[0][0];
+		boat = Content.getITEMS()[0][0];
+		axe = Content.getITEMS()[0][1];
 		
 		font = new Font("Arial", Font.PLAIN, 10);
 		textColor = new Color(47, 64, 126);
@@ -72,8 +72,13 @@ public class Hud {
 		int minutes = (int) (player.getTicks() / 1800);
 		int seconds = (int) ((player.getTicks() / 30) % 60);
 		if(minutes < 10) {
-			if(seconds < 10) Content.drawString(g, "0" + minutes + ":0" + seconds, 85, 3);
-			else Content.drawString(g, "0" + minutes + ":" + seconds, 85, 3);
+			if(seconds < 10) {
+				Content.drawString(g, "0" + minutes + ":0" + seconds, 85, 3);
+			}
+			else  {
+				Content.drawString(g, "0" + minutes + ":" + seconds, 85, 3);
+			}
+			Content.drawString(g, "Player " + player.getId(), 0, 3);
 		}
 		else {
 			if(seconds < 10) Content.drawString(g, minutes + ":0" + seconds, 85, 3);
